@@ -1,0 +1,636 @@
+//Minigames for Mori and Hayden! Woo!
+//This is largely the soul collection minigame. 
+//Time to code some mazes. 
+
+
+
+//The visuals of it running the show.
+OnMaze : all{
+	
+	//Set the type of death this was
+	mazedeathtype = RAND(3)
+	
+	mazesize = 7
+	//square
+	//Maze itself
+	OnBuildMaze
+	displayMaze
+	
+	//For debugging
+	//displayMazeSeen
+	
+
+}
+
+
+
+OnMazeBase : void{
+
+	turns = 0
+	
+	//To be encoded in binary, four binary digits. 0-15 decimal 
+	/*
+	mazearray6 = ( 0,0,0,0,0,0,0 )
+	mazearray5 = ( 0,0,0,0,0,0,0 )
+	mazearray4 = ( 0,0,0,0,0,0,0 )
+	mazearray3 = ( 0,0,0,0,0,0,0 )
+	mazearray2 = ( 0,0,0,0,0,0,0 )
+	mazearray1 = ( 0,0,0,0,0,0,0 )
+	mazearray0 = ( 0,0,0,0,0,0,0 )
+	*/
+	
+	visitedsquares = IARRAY
+	maze = IARRAY
+
+	for _i = 0; _i <  mazesize*mazesize; _i++{
+		visitedsquares,= 0
+		maze,=0
+	}
+
+}
+
+
+/*
+maze : all{
+
+	(mazearray6, mazearray5, mazearray4, mazearray3, mazearray2, mazearray1, mazearray0)
+	//(mazearray0, mazearray1, mazearray2, mazearray3, mazearray4, mazearray5, mazearray6)
+	
+}
+*/
+
+displayMazeSeen : all{
+
+	"\1\C\_q\![lock,balloonrepaint]\c\![unlock,balloonrepaint]" //deflickerer
+	
+	//starter val. to note where walls are by us
+	_playertileval = 0
+
+	//_loc - where we currently are in display
+	//playerloc - where the player is 
+	
+	"\b2\![set,autoscroll,disable]"
+	for _loc = 0; _loc < (mazesize*mazesize) ; _loc++ {
+		
+		if _loc == playerloc{
+			_playertileval = maze[_loc]
+			visitedsquares[_loc] = 2
+		}
+		//"%maze[_loc] :"
+		"%visitedsquares[_loc] :"
+		if (_loc+1) % mazesize == 0{
+			"\n[90]"
+		}
+	}
+
+	"\0"
+	
+}
+
+//Display the squares around the player
+displayMaze : all{
+
+	"\C\_q\![lock,balloonrepaint]\c\![unlock,balloonrepaint]" //deflickerer
+	
+	//starter val. to note where walls are by us
+	_playertileval = 0
+
+	//_loc - where we currently are in display
+	//playerloc - where the player is 
+	
+	"\b2\![set,autoscroll,disable]"
+	//Start up and to the left of the player, and display what's around in a 3x3
+	for _loc = playerloc - mazesize - 1; _loc < playerloc + mazesize ; _loc+=mazesize {
+		_i = _loc
+		//if player is at W edge, fog and skip forward
+		if  playerloc % mazesize == 0{
+			_i++
+			"\_b[img/fog.png,inline,--option=use_self_alpha]"
+			
+		
+		}
+		
+		//N and S bounds do not need to be checked with how YAYA does things. They'll be set as 0 and fog that way
+		if 1{
+			//For the 3 here
+			for _i = _i; _i < _loc+3; _i++{
+				
+				//Make sure we're not at the E edge
+				if _i == _loc+2 && playerloc % mazesize == mazesize-1{
+					"\_b[img/fog.png,inline,--option=use_self_alpha]"
+					
+				}else{
+					if _i == playerloc{
+						_playertileval = maze[_i]
+						visitedsquares[_i] = 2
+					}
+					displayCell(maze[_i],_i)
+					//And check if this tile is the end tile 
+					if _i == endpos{
+						"\_l[@-34,,]\_b[img/mori.png,inline,--option=use_self_alpha]"
+					}
+				}
+				
+				
+			}
+		}else{
+			"\_b[img/fog.png,inline,--option=use_self_alpha]\_b[img/fog.png,inline,--option=use_self_alpha]\_b[img/fog.png,inline,--option=use_self_alpha]"
+		}
+		"\n[80]"
+		
+	}
+	//Extracting masks of value to find what walls are there
+	
+	_inverse = BITWISE_NOT(_playertileval)
+	
+	if playerloc == endpos{
+		souls++
+		"\n%(mazeWinDialogue)\n\![*]\q[Menu,OnSakuraMenu]\e"
+	}
+	
+	"\n[800]"
+	
+	if !(BITWISE_AND(_inverse, 8) > 0); "\![*]\q[Go up,OnMazeForward]\n" 
+		else; "\![*]\f[color,disable]Go up\f[color,default]\n"
+	if !(BITWISE_AND(_inverse, 2) > 0); "\![*]\q[Go down,OnMazeBack]\n"
+		else; "\![*]\f[color,disable]Go down\f[color,default]\n"
+	if !(BITWISE_AND(_inverse, 1) > 0); "\![*]\q[Go left,OnMazeLeft]\n"
+		else; "\![*]\f[color,disable]Go left\f[color,default]\n"
+	if !(BITWISE_AND(_inverse, 4) > 0); "\![*]\q[Go right,OnMazeRight]"
+		else; "\![*]\f[color,disable]Go right\f[color,default]\n"
+
+	"\n[-900]"
+	if turns == 0{
+		//The spacing is wonky but its the 24hrs of the jam and I don't have the energy to go hunting
+		"\n[-100]%(mazeIntroDialogue)"
+	}else{
+		mazeDialogue(maze[playerloc])
+	}
+	
+}
+
+displayFullMaze : all{
+
+	"\C\_q\![lock,balloonrepaint]\c\![unlock,balloonrepaint]" //deflickerer
+	
+	//starter val. to note where walls are by us
+	_playertileval = 0
+
+	//_loc - where we currently are in display
+	//playerloc - where the player is 
+	
+	"\b2\![set,autoscroll,disable]"
+	for _loc = 0; _loc < (mazesize*mazesize) ; _loc++ {
+		
+		if _loc == playerloc{
+			_playertileval = maze[_loc]
+			visitedsquares[_loc] = 2
+		}
+		displayCell(maze[_loc],_loc)
+		if (_loc+1) % mazesize == 0{
+			"\n[85]"
+		}
+	}
+	//Extracting masks of value to find what walls are there
+	
+	_inverse = BITWISE_NOT(_playertileval)
+	
+	if playerloc == endpos{
+		souls++
+		"\nYou win!\n\![*]\q[Menu,OnSakuraMenu]\e"
+	}
+	
+	"\n\n"
+	if !(BITWISE_AND(_inverse, 8) > 0); "\![*]\q[Go up,OnMazeForward]\n" 
+		else; "\![*]\f[color,disable]Go up\f[color,default]\n"
+	if !(BITWISE_AND(_inverse, 2) > 0); "\![*]\q[Go down,OnMazeBack]\n"
+		else; "\![*]\f[color,disable]Go down\f[color,default]\n"
+	if !(BITWISE_AND(_inverse, 1) > 0); "\![*]\q[Go left,OnMazeLeft]\n"
+		else; "\![*]\f[color,disable]Go left\f[color,default]\n"
+	if !(BITWISE_AND(_inverse, 4) > 0); "\![*]\q[Go right,OnMazeRight]"
+		else; "\![*]\f[color,disable]Go right\f[color,default]\n"
+
+	
+}
+
+OnMazeForward : all{
+	playerloc -= mazesize
+	displayMaze
+	turns++
+}
+
+OnMazeBack: all{
+	playerloc += mazesize
+	displayMaze
+	turns++
+}
+
+OnMazeLeft: all{
+	playerloc--
+	displayMaze
+	turns++
+}
+
+OnMazeRight: all{
+	playerloc++
+	displayMaze
+	turns++
+}
+
+
+
+//Arg0 = numerical value of the tile
+//Arg1 = player location index
+displayCell : all{
+	//Base for any
+	"\_l[@-4,,]\_b[img/blanktile.png,inline]"
+	
+	_inverse = BITWISE_NOT(_argv[0])
+	
+	//We need to extract the 0s in the binary code. For each direction, they will return a postive number if the mask is there, 0 if not.
+	//First, check if seen. (If fog of war going on. I may remove it)
+	//if visitedsquares[_argv[1]] > 0{
+	
+	//Actually I'm changing it so now that you see a 3x3
+	if _argv[0] > 0{
+		//North walls
+		if BITWISE_AND(_inverse, 8) > 0 {
+			"\_l[@-34,,]\_b[img/northwall.png,inline,--option=use_self_alpha]"
+		}
+		
+		//East walls
+		if BITWISE_AND(_inverse, 4) > 0 {
+			"\_l[@-34,,]\_b[img/eastwall.png,inline,--option=use_self_alpha]"
+		}
+		
+		//South walls
+		if BITWISE_AND(_inverse, 2) > 0 {
+			"\_l[@-34,,]\_b[img/southwall.png,inline,--option=use_self_alpha]"
+		}
+		
+		//West walls
+		if BITWISE_AND(_inverse, 1) > 0 {
+			"\_l[@-34,,]\_b[img/westwall.png,inline,--option=use_self_alpha]"
+		}
+		
+		//player
+		if _argv[1] == playerloc{
+			"\_l[@-34,,]\_b[img/marker.png,inline,--option=use_self_alpha]"
+		}
+	}else{
+		"\_l[@-34,,]\_b[img/fog.png,inline,--option=use_self_alpha]"
+	}
+	
+
+	
+
+}
+
+OnBuildMaze {
+	
+	//you always start bottom row, so 0,%startpos and end 6,%endpos
+	startpos = RAND(mazesize)
+	endpos = RAND(mazesize)
+	playerloc = startpos + (mazesize * (mazesize-1)) //tracks our location overall
+	
+	
+	//For anyone snooping after the jam wondering about how a maze got built in YAYA,
+	//Look up Depth First Search on Wikipedia. It'll have pseudocode.
+	//For an explanation on the numbers used to note things down, be vaguely familiar with binary numbers, 
+	//and then DM me on Discord @Ecclysium and I can explain how the binary (bitwise) masks work.
+//	"\1\_qStart %(mazesize-1),%startpos: End 0,%endpos\n\0"
+	--
+	//And this is what I call the "baby out with the bathwater" code. 
+	//For some reason, it's failing and having unreachable tiles and I've been here for hours and can't figure out why.
+	//So it's a not-jam problem. 
+	//Checks if any tiles are unvisited and regens if so.
+	
+	//Clear the maze to begin since YAYA doesn't have a do-while
+	OnMazeBase
+
+	//Now loop if a maze isn't valid
+	while valueOfBinaryElements(visitedsquares) < mazesize*mazesize{
+		
+		//Clear the maze, marking all edges as walls and nodes unvisited
+		OnMazeBase 
+	
+		//Start where the user spawns
+		OnBuildMazeCell(mazesize-1,startpos)
+	}
+	
+	//When it's done, clean up north of the end point. 
+	//EVAL("mazearray6[%endpos] = BITWISE_OR(mazearray6[%endpos],8)")
+	maze[endpos] = BITWISE_OR(maze[endpos],8)
+	
+	
+	//mark start as seen
+	visitedsquares[playerloc] = 2
+	
+	
+	
+}
+//Arg0 is X (row) 
+//Arg1 is Y (column)
+//0,0 is top left
+OnBuildMazeCell: all{
+
+   // "%_argv[0] %_argv[1]:"
+	//Choose direction. The numbers returned are the Masks we will need in binary
+	_mask = 0
+	_mask += OnRandomMazeDirection(_argv[0],_argv[1])
+	
+	//mark this place as seen
+	visitedsquares[(_argv[0] * mazesize) + _argv[1]] += 1
+	
+	//Make sure we're not at a dead end (ie, OnRandMazeDir returns nothing)
+	while _mask > 0{
+	
+		
+		
+		//Update this cell for the direction we are going
+	//	EVAL("mazearray%(_argv[0])[%_argv[1]] = BITWISE_OR(mazearray%(_argv[0])[%_argv[1]],_mask)")
+		maze[(_argv[0] * mazesize) + _argv[1]] = BITWISE_OR(maze[(_argv[0] * mazesize) + _argv[1]],_mask)
+	
+		
+		//Move in the specified direction. 
+		case _mask{
+			//N
+			when 8{
+				//"N"
+				//mark South as open in the new cell
+				//EVAL("mazearray%(_argv[0]+1)[%_argv[1]] = BITWISE_OR(mazearray%(_argv[0]+1)[%_argv[1]],2)")
+				maze[(_argv[0]-1) * mazesize + _argv[1]] = BITWISE_OR(maze[(_argv[0]-1) * mazesize + _argv[1]],2)
+				//repeat in new cell
+				OnBuildMazeCell(_argv[0]-1,_argv[1])
+				
+			}
+			//E
+			when 4{
+				//"E"
+				//mark West as open in the new cell
+				//EVAL("mazearray%(_argv[0])[%(_argv[1]+1)] = BITWISE_OR(mazearray%(_argv[0])[%(_argv[1]+1)],1)")
+				maze[(_argv[0]) * mazesize + _argv[1]+1] = BITWISE_OR(maze[(_argv[0]) * mazesize + _argv[1]+1],1)
+				//repeat in new cell
+				OnBuildMazeCell(_argv[0],_argv[1]+1)
+			
+			}
+			//S
+			when 2{
+				//"S"
+				//mark North as open in the new cell
+				//EVAL("mazearray%(_argv[0]-1)[%_argv[1]] = BITWISE_OR(mazearray%(_argv[0]-1)[%_argv[1]],8)")
+				maze[(_argv[0]+1) * mazesize + _argv[1]] = BITWISE_OR(maze[(_argv[0]+1) * mazesize + _argv[1]],8)
+				//repeat in new cell
+				OnBuildMazeCell(_argv[0]+1,_argv[1])
+			
+			}
+			//W
+			when 1{
+				//"W"
+				//mark East as open in the new cell
+				//EVAL("mazearray%(_argv[0])[%(_argv[1]-1)] = BITWISE_OR(mazearray%(_argv[0])[%(_argv[1]-1)],4)")
+				maze[(_argv[0]) * mazesize + _argv[1]-1] = BITWISE_OR(maze[(_argv[0]) * mazesize + _argv[1]-1],4)
+				//repeat in new cell
+				OnBuildMazeCell(_argv[0],_argv[1]-1)
+			}
+			
+		
+		}
+		//Do it again when the stack reaches you once more so far later.
+		_mask = OnRandomMazeDirection(_argv[0],_argv[1])
+		//"Leaf\n"
+	
+	}
+	
+}
+
+
+//Binary mask is returned to combine with current number to open up paths.
+//Picks one at random of valid options. (not out of bounds and must be unvisited)
+//0,0 is top left
+OnRandomMazeDirection {
+	
+	//North
+	if _argv[0] > 0{
+		if visitedsquares[((_argv[0]-1) * mazesize) + _argv[1]]  == 0{
+			8
+		}
+	}
+	
+	//East
+	if _argv[1] < mazesize-1{
+		if visitedsquares[(_argv[0] * mazesize) + (_argv[1]+1)]  == 0{
+			4
+		}
+	}
+	
+	//South
+	if _argv[0] < mazesize-1{
+		//check if unvisited
+		if visitedsquares[((_argv[0]+1) * mazesize) + _argv[1]]  == 0{
+			2
+		}
+	}
+	
+	//West
+	if _argv[1] > 0{
+		if visitedsquares[(_argv[0] * mazesize) + (_argv[1]-1)]  == 0{
+			1
+		}
+	}
+
+}
+
+
+//Arg0 is value of player's tile
+mazeDialogue{
+	_options = valueOfBinaryElements(_argv[0])
+	
+	case _options{
+		when 1{ //dead end
+			{
+				"%(MRmelan)There is nothing here. Not this way."
+				"%(MRmelan)Deadest of %(negative) ends. %(MRrelax)Not your end, however."
+				"%(MRmelan)Do not tarry in a corner. Come to me."
+				"%(MRmelan)Can you hear my %(positive)%(color) voice? Little soul, %(diminutive) soul. Come to me. "
+				"%(MRmelan)There are many dead ends in the twists and waves of life. But you can turn around here."
+				"%(MRthink)If nothing else, it is a %(positive) wall."
+				"%(MRmelan)I am not there. I do not sleep. Turn around."
+				
+			}
+			case mazedeathtype{
+				when 0{
+					"%(MRneut)It is just you and the dumpster. I am not there. I am not that smelly."
+					"%(MRneut)Bricks, bricks, piled up high! The buildings make this journey a maze. Your head swims. "
+					"%(MRmelan)Do you mean to take a break away from the city streets? I would not if I were you. Do not %(linger), else it may eatconsume you. "
+					
+				}
+				when 1{
+					"%(MRneut)Was this wall here before? You cannot pass."
+					"%(MRneut)It is the same but different. A picture of your family meets your gaze. This is not correct. It is a dead end."
+					
+				}
+				others{
+					"%(MRneut)A knight in armor meets your gaze. It is just a statue. You cannot continue this way."
+					"%(MRneut)May the %(linger)longer desire halt. You cannot go this way. If you stay too long, you will never find me again. Time, time, time. Essence of %(spirit), come to me. Turn around."
+					
+				}
+			
+			}
+		}
+		when 2{ //one way
+			{
+				"The options are simple here, little one. You can go forward. Only one way is forward. "
+				"Onwards, narytarryonwards. Believe. I am near. "
+				"Do not tarry. It is not good to %(linger) in your spiritstay. We must rinse and recycle."
+				"Continue on."
+				"Onwards, %(diminutive) soul."
+				"Can you hear me? Follow that."
+				"On, on, on."
+				"%(MRmelan)You remember your mother. Let that fade away. We will find you another..."
+				"%(MRmelan)Your father never did much for you. Now, he leaves you only with questions."
+				"%(MRmelan)You would call out to someone, but there is none to save you except for me. Do not %(linger)."
+				"The %(sun/moon) beats down, oh %(diminutive) soul. Go on."
+				"%(MRneut)On your way now! On your way here!"
+			}
+			"..."
+			case mazedeathtype{
+				when 0{
+					"%(MRfrust)Splash! Water crest and terror high, splish splash. Over top you. The metal monsters beget you..."
+					"%(MRneut)Lamps call to you. Glittering so high above. The angels of night."
+					"%(MRneut)To be a bird on a phone line, so high up..."
+					"%(MRneut)You have the urge to check your phone. There is no more cellytelly for you."
+				}
+				when 1{
+					"%(MRneut)Families were raised in these halls. Not just your own. Every world has its memories. Breathe in the wonder, exhale the pain. Carry on."
+					"%(MRneut)A child’s laughgiggle. Childish %(spirit)wonder. "
+					"%(MRmelan)You can feel the love, love, love. The halls are full of love. "
+				}
+				others{
+					"%(MRneut)What if you were to be a knight, like the statues guarding the way as you wearily walk? You could be strong. Strong enough to handle what brought you here. "
+					"%(MRneut)The halls make you giddy, even as they repeat. You will miss Dungeons and Dragons. You had such good times. Perhaps again, in another life..."
+					"%(MRneut)Fluttering through, your %(spirit)self takes it in, and keeps on moving. The meticulous stone bricks are a sight to behold."
+				}
+			
+			}
+		}
+		others{ //crossroads
+			{
+				"%(MRneut)There are many ways you could go, oh my %(diminutive) one."
+				"%(MRneut)There are many paths. Which to? Which to?"
+				"%(MRneut)You find yourself at a dark crossroads, %(diminutive) soul. It is dreary but it is not faint. You are spirited. Come and find me. "
+				"%(MRneut)Which oh which withered willing way? Your head swims."
+				"%(MRneut)Decisions, decisions."
+				"%(MRmelan)What if you make the wrong decision? What if you are %(negative)search lost? "
+				"%(MRneut)Be quick. The imagery repeats, but too much thought will not be the best. Rinse, recycle, reuse, repeat."
+				"%(MRmelan)You remember your lover. Would they have an answer? No, not here. "
+				
+			}
+			
+			"..."
+			
+			case mazedeathtype{
+				when 0{
+					"%(MRneut)Do not forget to trigger the light before crossing the street. Safety! Safety, safety, dingding. Lights!"
+					"%(MRneut)Cars cross and twist and turn. It is a life soon to be beyond you for a lovely break, a reset. Won’t you find me so I can restartendbegin this toil?"
+					"%(MRneut)My %(diminutive) %(spirit), do not let the pretty city distract you. I am your flame, so take these twisty roads and find the right path. I do not know where exactly you are, but I feel you are more near than you know."
+					
+				}
+				when 1{
+					"%(MRneut)’Did these halls always seem to repeat?’ The %(diminutive) you wonders. No, they did not. It is your final challenge to find the right answer. Do not be swayed by fragments of memories."
+					"%(MRmelan)Your memory betrays you. What is correct? You turn and it is no longer a bedroom, but another corner. Carry on, do not %(linger). "
+					"%(MRneut)Memorymind swims. Not the same, not the same. Please persevere, my %(spirit). I am not far. I am your new home."
+				}
+				others{
+					"%(MRneut)Your mind aches with new worlds and castle echoes. Your world was too painful, and this suits you better. Mind the paintings. Keep on coming to me. "
+					"%(MRmelan)’Are the eyes of that painting following me?’ No, this world is your thoughts. It winds like your worries and woes. Take to the wind. Come and find me. "
+					"%(MRneut)Your mind is a spiraling maze. How much longer, you wonder? Choose carefully, but not too careful. Be quick. "
+				}
+			
+			}
+		}
+	
+	}
+
+}
+
+mazeIntroDialogue{
+	{
+		"%(MRneut)It is cold, and it is dark, but my %(diminutive) darling, it is quiet and peaceful. A %(deathtype)%(negative) death may mean little when it is freedom. You are safe now. Come and find me."
+		"%(MRmelan)Little soul, lost in the world but peace is near if you search these stretches. Your %(deathtype) was so harsh to you, but come to me oh come to me and I will keep you safe. You have earned a better next time, or silence if you wish it. "
+		"%(MRthink)Hello oh hello hello. It was hard, isn't was, %(diminutive) one? Come on, hear me in these ways, and hellogreet me. I will take you home. "
+	}
+	case mazedeathtype{
+		when 0{
+			"%(MRmelan)Cold streets. A %(negative)%(deathtype). All the more reason to not %(linger) here. "
+			"%(MRmelan)The lampposts are %(negative)tall, and you. You are small. The %(deathtype) sits heavy with you. It will not win your soul."
+			"%(MRmelan)City lights are little flames calling your name, but do not let them win. I am the only light that will rescuesave you. Find my gaze, moth to moth."
+			"%(MRmelan)It smells like a dumpster. The scent lingers in your nose alongside your %(deathtype) body. The only peace is if you run through these streets to find me. Let me bring you to safety."
+		}
+		when 1{
+			"%(MRthink)Look who is inside. It is little %(deathtype) you. Do be careful my %(spirit). "
+			"%(MRmelan)The safety of your home is where your soul felt called. It may not be what you remember, %(diminutive) one. Come and find me."
+			"%(MRneut)Carpeted floors, familiar paintings shifted. Layout changed. Your %(deathtype) mind distorts you. It will be a search, but seek me out. Do not %(linger)."
+		}
+		others{
+			"%(MRneut)It is not a place you know your %(deathtype) takes you. It is something else, somewhere else to wander. It is best you be moving. "
+			"%(MRmelan)It is cold, and long, and full of stone bricks unfamiliar to you. You shiver. How to speaksay what you see? Your life is beyond you. One final task: come and find me. There I will give you new life. Sleep, if you wish."
+			"%(MRneut)Little %(spirit), you could be a ruler. Halls of your own. People to cheer and clap for you all the way. You do not mind the %(deathtype). You want to be here now. But it is not wise... Come and find me."
+		}
+	
+	}
+
+
+}
+
+mazeWinDialogue{
+	"\_q"
+	--
+	"%(MRneut)You found me, %(spirit)! \w8Cuddle close and I will take you away from here. \w8How very %(positive) of you. "
+	"%(MRneut)Yes, %(positive)congrats! \w8You are safe now. \w8Let me take you away."
+	"%(MRneut)I am a sight for sore eyes. \w8I have you now, \w4so you may close eyes and sleeprest. "
+	--
+	"\n\n\_q"
+
+}
+
+
+
+
+//Arguments are what needs to be added. Sometimes small, sometimes large.
+valueOfBinaryElements : all{
+	_total = 0
+	_binarystring = ""
+	
+	//While we have more to add
+	for _i = 0; _i < ARRAYSIZE(_argv); _i++{
+		_binarystring = TOBINSTR(_argv[_i])
+		//Add if this space in the binary number is 1
+		for _x = 0; _x < STRLEN(_binarystring);_x++{
+			if TOINT(SUBSTR(_binarystring,_x,1)) == 1{
+			
+				_total++
+				
+			}
+		}
+		
+	}
+	
+	//"%_total with %_binarystring"
+	_total
+
+
+}
+
+test{
+	valueOfBinaryElements(_argv[0])
+}
+
+
+
+
+
+
+
+
+

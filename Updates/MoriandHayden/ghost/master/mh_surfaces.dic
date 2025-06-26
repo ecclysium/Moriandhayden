@@ -1,0 +1,185 @@
+//Surface folder!
+//A series of envelopes used to control expressions and poses for Mori and Hayden.
+
+
+br{
+	"\n\n[half]"
+}
+
+//MORI POSES==============================
+MRneut : all{
+
+	"\0\s[100]"
+	if haydendead == 1{
+		"\i[100]"
+	}
+	//Souls
+	for _i = 0; _i < souls; _i++{
+		if _i < 10{
+			"\i[70%_i]"
+		}else{
+			"\i[7%_i]"
+		}
+	}
+}
+
+MRrelax : all {
+
+	"\0\s[100]"
+
+	if haydendead == 1{
+		"\i[100]"
+	}
+	//Souls
+	for _i = 0; _i < souls; _i++{
+		if _i < 10{
+			"\i[70%_i]"
+		}else{
+			"\i[7%_i]"
+		}
+	}
+}
+
+MRrest : all{
+
+	"\0\s[100]"
+
+	if haydendead == 1{
+		"\i[100]"
+	}
+	//Souls
+	for _i = 0; _i < souls; _i++{
+		if _i < 10{
+			"\i[70%_i]"
+		}else{
+			"\i[7%_i]"
+		}
+	}
+}
+
+MRthink : all{
+
+	"\0\s[101]"
+
+	if haydendead == 1{
+		"\i[100]"
+	}
+	//Souls
+	for _i = 0; _i < souls; _i++{
+		if _i < 10{
+			"\i[70%_i]"
+		}else{
+			"\i[7%_i]"
+		}
+	}
+}
+
+
+MRfrust : all{
+
+	"\0\s[102]"
+	
+	if haydendead == 1{
+		"\i[100]"
+	}
+	//Souls
+	for _i = 0; _i < souls; _i++{
+		if _i < 10{
+			"\i[70%_i]"
+		}else{
+			"\i[7%_i]"
+		}
+	}
+}
+
+MRmelan : all{
+
+	"\0\s[103]"
+	
+	if haydendead == 1{
+		"\i[100]"
+	}
+	//Souls
+	for _i = 0; _i < souls; _i++{
+		if _i < 10{
+			"\i[70%_i]"
+		}else{
+			"\i[7%_i]"
+		}
+	}
+}
+
+
+//HAYDEN TALK POSES======================
+HTrest{
+	"\0%(stopotherhayden)\i[100]\i[300]\1\f[height,%textsize]"
+}
+
+HTneut{
+	"\0%(stopotherhayden)\i[104]\i[304]\1\f[height,%textsize]"
+}
+
+HTcross{
+	"\0%(stopotherhayden)\i[101]\i[301]\1\f[height,%textsize]"
+}
+
+HTshout{
+	"\0%(stopotherhayden)\i[103]\i[303]\1\f[height,%textsize]"
+}
+
+HThead{
+	"\0%(stopotherhayden)\i[102]%(stoptalk)\1\f[height,%textsize]"
+}
+
+HTpgdead{
+	"\0%(stopotherhayden)\![anim,clear,108]\i[109]%(stoptalk)\1\f[height,%textsize]"
+}
+
+Hfall{
+	"\0%(stopotherhayden)\i[108]%(stoptalk)\1\f[height,%textsize]"
+}
+
+stoptalk{
+	"\0\![anim,clear,300]\![anim,clear,301]\![anim,clear,303]\![anim,clear,304]"
+}
+
+
+//HAYDEN POSES============================
+Hrest{
+	"\0%(stopotherhayden)\i[100]%(stoptalk)\0"
+}
+
+Hneut{
+	"\0%(stopotherhayden)\i[104]%(stoptalk)\0"
+}
+
+Hcross{
+	"\0%(stopotherhayden)\i[101]%(stoptalk)\0"
+}
+
+Hshout{
+	"\0%(stopotherhayden)\i[103]%(stoptalk)\0"
+}
+
+Hhead{
+	"\0%(stopotherhayden)\i[102]%(stoptalk)\0"
+}
+
+
+
+Hpgdead{
+	"\0%(stopotherhayden)\![anim,clear,108]\i[109]%(stoptalk)\0"
+}
+
+
+
+
+stopotherhayden{
+	"\0\![anim,clear,100]\![anim,clear,101]\![anim,clear,102]\![anim,clear,103]\![anim,clear,104]\![anim,clear,109]"
+}
+
+
+
+
+
+

@@ -1,0 +1,310 @@
+
+//Things Mori calls Hayden
+haydennick{
+	"my "
+	"my "
+	""
+	"oh "
+	--
+	"%(diminutive) "
+	--
+	"timeless"
+	"soulsnatcher"
+	"timeless"
+	"killer"
+	"flame"
+	"reaper"
+	"demon"
+	"lifeeater"
+	"hitman"
+	"meat"
+	"candle"
+	"scrungle"
+	"bug"
+	
+}
+
+diminutive{
+	"little"
+	"pet"
+	"littlebig"
+	"miniscule"
+	"leashed"
+	{
+	"shrimp"
+	"sewer"
+	"ratty"
+	}
+
+}
+
+positive{
+	"yesyes"
+	"good"
+	"jolly"
+	"golly"
+	"top"
+	"success"
+	"earnest"
+	"wondrous"
+	"wonderful"
+	"spectacular"
+	"spirited"
+	"magical"
+
+	--
+	""
+	"%(positive)"
+}
+
+negative{
+	"no"
+	"bad"
+	"deep"
+	"hurt"
+	"bleed"
+	"demise"
+	"death"
+	"torture"
+	"suffer"
+	"nary"
+	"gruesome"
+	"wretched"
+	"terror"
+	"fatal"
+	--
+	""
+	""
+	"%(negative)"
+}
+
+color
+{
+	"baby blue"
+	"cerulean"
+	"mint"
+	"slate"
+	"aqua"
+	"red"
+	"carmine"
+	"crimson"
+	"snowy"
+	"terra"
+	"terracotta"
+	"mahogany"
+	"burgundy"
+	"sage"
+	
+}
+
+
+vice{
+	"booze"
+	"smokes"
+	"strip clubs"
+	"garlic"
+	"a good chase"
+	"Monster"
+	"a new tat"
+	"wine"
+}
+
+fooddrink{
+	"fireball"
+	"gyoza"
+	"fancy ramen"
+	"creme donuts"
+	"kimchi"
+	"adobo chicken"
+	"whiskey on the rocks"
+	"tequila shots"
+	"Pipeline Punch"
+	"spiked eggnog"
+	"blood pudding"
+	"bourbon"
+	"bacon cheddar quiche"
+	"the good diner hashbrowns"
+	"eggs"
+	"strawberry wine"
+	"strawberry wine"
+	"peach wine"
+	"plum wine"
+	"curry"
+	"spicy curry"
+
+}
+
+fighttypes{
+	"fistfights"
+	"knife fights"
+	"duels"
+	"cowboy shootouts"
+	"scuffles"
+	"brawls"
+
+}
+
+bakedgood{
+	"donuts"
+	"eclairs"
+	"tres leches"
+	"german chocolate cake"
+	"sea salt chocolate muffins"
+	"sheet cake"
+	"chocolate pastries"
+	"oreo and nutella crepes"
+	"crepes"
+	"chocolate hazelnut cookies"
+}
+
+deathtype{
+	"cancer"
+	"murder"
+	"suicide"
+	"old age"
+	"illness"
+	"car accident"
+	"fire"
+	"old age"
+	"natural causes"
+	"drowning"
+	"natural disaster"
+	"cardiac arrest"
+	"stroke"
+	"accident"
+	"trauma"
+	"disease"
+	"%(haydendeathtype)"
+}
+
+//The more uncommon deaths.
+haydendeathtype{
+	"sniper"
+	"stabbing"
+	"poison"
+	"gunshot"
+	"iron maiden"
+	"torture"
+	"bleeding out"
+}
+
+linger{
+	"linger"
+	"linger"
+	"tarry"
+	"circle"
+	"pause"
+	"stopsearch"
+	--
+	{
+		"wait"
+		"wonder"
+		"stay"
+	}
+	""
+	"%(linger)"
+
+}
+
+spirit{
+	"little"
+	"spirit"
+	"soul"
+	"light"
+	"glow"
+	--
+	""
+	"life"
+	"light"
+	"moth"
+	"%(spirit)"
+}
+
+moristim{
+	"%(MRrelax)Dingding"
+	"%(MRrelax)Beep beep"
+	"%(MRrelax)Bingbong"
+	"%(MRrelax)Wawa"
+	"%(MRthink)Yay yay yippee yay :3"
+	"%(MRrelax)Oh %(positive)! \w4Dingdingding!"
+	"%(MRrelax)AAAAH??"
+	"%(MRrelax)Ducks."
+	"%(MRrelax)Gandergeese."
+
+
+}
+
+morisaying{
+	"%(morisaystart) %(morisaymid) %(morisayend)"
+	"%(morisaystart) %(morisayend)"
+}
+
+morisaystart{
+	"%(MRrelax)The early worms find the bird, "
+	"%(MRmelan)Things must %(negative)end, "
+	"%(MRfrust)Actions and actions, "
+	"%(MRrelax)Each step taken "
+	"%(MRthink)Beholding beauty in eyes of bees, "
+	"%(MRrelax)Flocking and feathers, "
+	"%(MRfrust)Bite bite bite, "
+	"%(MRrelax)Counting eggie and egging countie, "
+	"%(MRfrust)Book judgment leads to "
+	"%(MRmelan)Blazing fire irons go, "
+	"%(MRfrust)Nononono, we can sleep that bridge "
+	"%(MRrelax)Trades of jacks, "
+	"%(MRthink)To idle is to %(linger), "
+}
+
+morisaymid{
+	"and actions and actions"
+	"each step forgotten"
+	"bite chomp bite"
+	"book book"
+	"%(positive)"
+	"%(negative)"
+	"%(positive)%(negative)"
+	"%(negative)%(positive)"
+	"are forgotten and remembered"
+	"%(positive)anomaly"
+	"and your mother"
+	"master of fun"
+	--
+	" "
+}
+
+morisayend{
+	"and so life continues."
+	"\w4%(MRthink)yet %(negative)death brings new %(positive) life!"
+	"and actions are wordloud."
+	"\w4%(MRrelax)miles of thousands and thousands of walks!"
+	"%(MRmelan)one step closer and one step further."
+	"holding bees in the eyes of beauty."
+	"hand %(negative)bite feed hurt."
+	"with birds and moths and dogs and cups and lizards."
+	".\w2.\w2.\w2.\w2.\w2%(MRmelan)Lost eggcount %(negative)."
+	"%(negative)walks and talks."
+	"exhausted %(diminutive) flame burning bright until metalwork deathdies."
+	"when we die %(negative)foolish %(spirit)."
+	"yet better than one to master."
+
+}
+
+godinfo{
+	"%(MRthink)%(br)Big Creative!! Fun %(positive)! Save life, yesyes good that ‘Litelite. %(HTneut)%(br)Big creative?? %(MRrelax)%(br)Yesyes!!"
+	"%(MRfrust)%(br)Lust of wandering %(negative)irresponsible. \w8%(MRthink)Steal many child of wanderings! \w4Mori’s now. %(HTneut)%(br)Wait, \w2is that who your other reapers are? %(MRrelax)%(br)Mostly!"
+	"%(MRmelan)%(br)Stormcountrygod family %(negative)killed. \w4Much sadness, \w2yet mortals rejoice. \w4Shame shame. %(HTneut)%(br)Storm country?? %(MRrelax)%(br)Talk no, \w2but rumors flitter float to ears."
+	"%(MRrelax)%(br)Dog watching!! Dog always watching. Rambles enjoy. %(HTneut)%(br)...who?"
+	"%(MRrelax)Big curious eyes darts back and forth, met little curiosity too! Littlebig demified god much learn. Yesyes goodgood. %(HTneut)%(br)Wait, \w2the god of curiosity has a kid?%(stoptalk)"
+	"%(MRmelan)%(br)Luckiest of ladies trapped, %(negative)spouse-ex hurt. Little luck left alone....... \w8%(br)%(MRrelax)!!! \w4%(br)Pausing, \w2%(haydennick) connected with Little Luck! %(HTneut)%(br)Huh?? \w5Who the hell is Little Luck? %(MRrelax)%(br)Message send hello pleaseplease!! \w4Lady Luck sad childmiss. %(HTneut)%(br)Sure?? \w4But who are they?"
+
+
+}
+
+morigreeting{
+	"%(MRthink)Salutations %(Haydennick)! Soso %(positive) to perceive your being once more."
+	"%(MRthink)Oh %(haydennick)! So very golly good to see you, yesyes!"
+	"%(MRneut)Oh, yesyes, hello %(haydennick)."
+	"%(MRthink)Yay yippee %(haydennick) returns with souls in tow."
+	
+
+}

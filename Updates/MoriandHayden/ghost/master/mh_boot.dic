@@ -1,0 +1,109 @@
+OnFirstBoot
+{
+	//If you add variables, make sure to initialize them here!
+	//Note - I haven't added anything about username or pronouns here because it's all handled by the SSP prefs
+	stroke = 0
+	nickname = username
+	textsize = 14
+	LastTalk = ""
+	betaupdates = 0 //Never know if we'll come back to this ghost!
+	
+	haydendead = 1
+	souls = 0
+	goretalk = 0
+	beers = 99
+	ibuprofengirl = 0
+	
+	//"\1\s[-1]%(MRrest)Another nary-yesyes-beautiful day with a set of souls. Oh, will they gather in close, come closercloser.\w8"
+	"\1\s[-1]"
+	--
+	"\0\s[101]My-me, oh my! \w8What a %(positive) day. \w8Why, \w4there is something odd in the air. \w8Is it the lack of %(spirit)? \w8It is lonely with myself and me and middlymine. \w8Oh, middlymine, \w4where is that one I do keep? \w8Where is that littlebigflame soulsnatcher? \w9I do wonder what they are up to.\w4.\w4.%(Hfall)"
+	--
+	"\w8%(MRrelax)%(Hpgdead)%(br)\w4Oh!! \w4%(MRthink)%(Hpgdead)Demon speak of, \w2hello Hayden!! \w8Is how soul gather? Is %(negative) or perchance %(positive)?"
+	--
+	"%(HTpgdead)Mmmmrrngg-%(MRmelan)%(Hpgdead)%(br)Mmrrrr??\x%(HTpgdead)%(br)Mrrrgggrrughh- \w2%(HTshout)THOSE FUCKIN’ FEATHERY FUCKS!!!%(MRrelax)Feather fuck?"
+	--
+	"%(Hcross)\1%(br).\w2.\w2.\w2.%(HTcross)Okay I know ya are a god ‘n alla that, \w2but never say feather fuck again. Anyways, it was those fuckin’ aerials again. Thought I killed 'em all, but guess not. \w8%(HTrest)Hmph. \w4Whateva, \w2guess I’m stuck here for now."
+	--
+	"%(MRrelax)Featherfucks %(negative), \w2but %(positive)glad to see %(haydennick) again! \w4Too long, \w2longest of longs."
+}
+
+OnInitialize
+{
+	//If you want some variables to reset on boot, put them here. This event will happen even if you add other events like OnGhostChanged
+	//OnInitialize is a NOTIFY event! That means it cannot return scripts. This event is only meant for things like variable changes. See this page on Ukadoc for more info: https://ukagakadreamteam.github.io/ukadoc/manual/spec_shiori3.html
+	
+	//If you add new variables in updates, I recommend initializing them like so:
+	//if !ISVAR("NewVariable"); NewVariable = 0
+	//This means that it will only set the new variable if the user doesn't already have it, so that their variables don't get overwritten
+	
+	if reference0 != "reload" //For things you want to reset EXCEPT when just reloading; a convenience for you the dev, basically
+	{
+		LastTalk = ""
+	}
+}
+
+OnBoot
+{
+	
+	_today = "%(month)/%(day)" 
+	
+	if haydendead == 1{
+	
+	}else{
+		haydendead = RAND(2)
+	}
+	
+	"\1\s[-1]%(MRneut)"
+	--
+	if _today == "1/1"
+	{
+		"%(MRthink)AH!! \w2Year new! \w4Mortals %(positive)live another year! \w4Yayyippee!!"
+	}
+	elseif _today == "11/30" 
+	{
+		haydendead = 1
+		"%(HTneut)Uhhhhhh. \w4Mori I didn’t die, \w2why am I here??%(MRthink)Summoned! \w4Celebratory celebrations of %(haydennick)’s continued life of cycle!!%(HTneut)%(br)Wh- \w2Wait that’s today?? \w5Oh shit that is today. \w4%(HTcross)Tch, \w2almost forgot this time%(MRrelax)No forgets, \w2not alloweded :3%(HTcross)%(br)Ugh.%(stoptalk)"
+	}
+	elseif _today == "6/2" 
+	{
+		"%(MRthink)Halfway!! \w4Halfway!!!!! \w6Persist, grow, continue! \w4Yesgood."
+	}
+	else //Normal boot
+	{
+		if haydendead == 1{
+			"%(MRrelax)Salutations, %(haydennick)!%(HTrest)Yeah, yeah.%(stoptalk)"
+			"%(HTneut)Hmph, \w2that soul is back.%(MRrelax)Which soul?"
+			"%(MRmelan)Shhhhhhh, \w4Hayden slumbereth.%(HTrest)I was.%(MRrelax)%(br)Oh hellos!!"
+		}else{
+			"%(MRrelax)Freshening breath of the start, yesyes!"
+			"%(MRrelax)Searching and yearning for the %(positive)beginning, yet discovery %(negative)leads to end of bones."
+			"%(MRthink)Glowing eyelight gathers evermore, \w2in the beckoning of sands."
+			"%(MRrelax)Morning good!! "
+			"%(MRrelax)Journey of souls to the great beyond!"
+			"%(MRrelax)We shall see! \w4See shall we."
+		
+		}
+		
+	}
+}
+
+OnClose
+{
+	
+	if haydendead == 1{
+		"%(HTrest)Huh, that soul is leaving. \w8See ya.%(stoptalk) "
+		"%(HTrest)Smell ya later, \w4soul.%(stoptalk) "
+		"%(MRmelan)Sleepy, \w8sleepy.%(HTrest)Sounds good ta me.%(stoptalk) "
+		"%(MRneut)Perchance, \w4perbe, \w4maychance, \w4maybe.\w4.\w4.%(HTcross)Wha does that even mean?%(stoptalk) "
+		
+	}else{
+		"%(MRthink)Everever quieter mind. "
+		"%(MRneut)To another day. \w8This one may want to sleep themself."
+		"%(MRmelan)Sleepy, \w8sleepy."
+		"%(MRneut)Perchance, \w4perbe, \w4maychance, \w4maybe.\w4.\w4."
+	}
+	
+	--
+	"\w8\w8\-" //This is what makes the ghost close (after a short pause), do not remove the \- , and MAKE SURE you don't use a \e before this point or it won't work
+}

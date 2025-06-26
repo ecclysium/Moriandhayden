@@ -1,0 +1,23 @@
+charset,UTF-8
+type,shell
+
+name,Default Shell
+craftman,dransnake and Ecclysium
+craftmanw,
+craftmanurl,
+
+seriko.alignmenttodesktop,free
+seriko.use_self_alpha,1
+
+
+
+balloon.directory,deathballoon
+
+
+menu.foreground.font.color.r,255
+menu.foreground.font.color.g,255
+menu.foreground.font.color.b,255
+
+menu.background.font.color.r,220
+menu.background.font.color.g,220
+menu.background.font.color.b,220

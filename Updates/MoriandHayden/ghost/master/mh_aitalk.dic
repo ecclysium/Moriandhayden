@@ -1,0 +1,280 @@
+OnAiTalk
+{
+	if CHAIN.IDName == ""
+	{
+		LastTalk = RandomTalk
+	}
+	else
+	{
+		LastTalk = ChainTalk
+	}
+	LastTalk
+}
+
+RandomTalk : nonoverlap_pool
+{
+	
+	//"%(MRfrust)Grrrr, I'm mad."
+	//"%(MRthink)Make something cool, %(username)!\w8 You've got this!"
+	{
+		"%(MRthink)Oh, what a %(positive)ly good sight, %(diminutive) soul.\w4.\w4."
+		"%(MRmelan)Oh, to sleep, perchance to dream. What a weary world and waiting for will to wither a little more. \w8Come to me, dream again, and let me send you on your way.\w4.\w4."
+		"%(MRrelax)Hmmm %(positive)? \w4%(MRfrust)No, %(negative)%(negative)"
+		"%(MRmelan)To steep in the depths, \w4the blood, \w4the edges of consciousness stretching into the sky to mingle with the stars. \w8Being inundated with the dust of others, \w4the %(positive)fertilizer. \w8You are what you eat. \w8And it is all beautiful. "
+		"%(MRthink)Oh %(diminutive) %(spirit), we’re truliest in it now."
+		"%(MRrelax)Hmmmm when the wheel halts, turn to %(positive)wonder."
+		"%(MRrelax)Fading and wading and watching %(positive) lifesouls grow and tumble."
+		"%(MRmelan)Ah, %(linger). %(br).\w2.\w2.\w2.\w2.\w2.\w2.\w2.\w2.\w2.\w2.\w2.\w2.\w2.\w2 %(br)%(MRrelax)Thankie."
+		"%(MRmelan)Shattering and spattering and grinding and finding."
+		"%(MRthink)Pondering and wandering and searching and lurking."
+		"%(MRfrust)Killing and spilling, \w4hiding yet climbing."
+		"%(MRrelax)Dinner is not over, carrytarry my %(diminutive) life."
+		"%(MRthink)Sparkle on! \w4Yourself%(positive) be remember."
+		"%(MRfrust)Sparkle off! \w4Who are forget %(negative)you."
+		"%(MRrelax)CAR CRASHING, \w2GLASS SHATTER, \w2GOODGOLLY ME!!"
+		"%(moristim)"
+		
+		if souls == 0{
+			"%(MRmelan)Hither and thither, soulsearch for grasping spirits %(negative)lost. "
+		}elseif souls == 1{
+			"%(MRthink)Ah little %(spirit), question of being or not. \w9Tis noble to %(negative)suffer or perchance drown in seas, we know not. \w8Yet death is sleep with opposing change."
+		}elseif souls < 6{
+			"%(MRrelax)Wistful %(diminutive) friends flutterround %(positive)whisper secrets of spent well lives."
+		
+		}else{
+			"%(MRrelax)Bugsbugsbugsbugsbugsbugsbugs! <3"
+		}
+	}
+	
+	if haydendead == 1{
+		{
+			"%(MRthink)Hmmm.\w4.\w4. %(haydennick), does the seeingeye you enjoy this soulful alcove of mine?"
+			--
+			"%(HTneut)No. Borin’ here.%(stoptalk)"
+			"%(HTcross)Could use some %(fooddrink).%(stoptalk)"
+			"%(HTrest)It’s whateva. %(stoptalk)"
+			"%(HTcross)That time they severed my spine still hurts. \w8Add a couch or somethin’, Mori. %(stoptalk)"
+		}
+		"%(HTrest) Hmm.\w4.\w4.%(fooddrink), %(fighttypes), %(bakedgood).\w4.\w4. Oh, I wish I had %(vice).\w4.\w4.%(stoptalk)"
+		"%(HTcross)Turns out gals have a lotta thoughts when ya have a death loop going on.%(MRmelan)%(Hcross)Did she leaveforgo this oh so littlepain you?%(HTneut)%(br).\w4.\w4.\w4.\w4%(HThead)No,\w2 it got weird really fast.%(stoptalk)"
+		if ibuprofengirl == 2; "%(HTrest)Beautiful women named Ibuprofen in my phone, \w6I love ya so.%(stoptalk)"
+		{
+			"%(MRneut)Hm, yes, %(haydennick), what was your favorite %(negative)%(positive) death? "
+			--
+			"%(HTneut)Gettin’ sawed in half. Next question.%(stoptalk)"
+			"%(HTcross)Stop it with the small talk, I’m tryna sleep. %(stoptalk)"
+			"%(HTrest)Some poisons feel good ‘till they kill ya.%(stoptalk)"
+			"%(HTcross)Some guy tried ta steal my kidneys once. \w8Failed.\w8 Still bled out. \w8\w8%(HTrest)Not my fave, but he gave it a good effort.%(stoptalk)"
+			"%(HTneut)Most poisoning. You don’t know shit going on.%(stoptalk)"
+			"%(HTneut)The adrenaline from knife fights gets me goin’. Good burn. %(stoptalk)"
+		}
+		"%(HTneut)Hey Mori.%(MRrelax)Yes %(haydennick)?%(HTneut)\n\n[half]As a god, shouldn’t you be yanno... \w2a lot larger?%(MRthink)\n\n[half]Oh! A %(positive)%(positive) question! \w4We are quite vast beyond the reachiest of reaches, \w2much humongous to the mortal mind yesyes!%(HTneut)\n\n[half]Ya ain’t making much sense here.%(MRrelax)\n\n[half]:3"
+		"%(MRrelax)Tell me, \w2%(haydennick), the imagery on thine skin has grown since last time! Have you expanded your collection?%(HTrest)Wh- %(HTneut)Oh ya mean my tats? \w8%(HTrest)Heh, yeah."
+		"%(MRrelax)Hayden %(haydennick)!! \w8Can we tries the %(bakedgood)??%(HTrest)Ya gotta visit me for that one.%(MRrelax)%(br).\w2.\w2.\w2.\w2.\w8%(br)%(MRfrust)>:("
+		"%(HTrest)%beers bottles of beer on the wall, \w2%beers bottles of beer. \w4Take one down and pass it around, %(beers-1) bottles of beer on the wall.%(stoptalk)\e:chain=beerchain"
+		"%(HTrest)%beers bottles of beer on the wall, \w2%beers bottles of beeeeeer! \w4Take one down and pass it around, %(beers-1) bottles of beer on the wall!!!%(stoptalk)\![raise,OnBeerDecrement]"
+		{
+			"%(HTrest)%beers bottles of beer on the wall, \w2%beers bottles of beer. \w4Take one down and pass it around, %(beers-1) bottles of beer on the wallllll!%(stoptalk)"
+			--
+			"%(MRthink)Takey down, passy around, %(RAND(1000)) of beers on the walls! %(HTneut)%(br)N-\w2no. %(HThead)That ain’t how it goes.%(stoptalk)"
+			"%(MRrelax)How manys %(negative)drinks do mortals wall consumeneed? %(HTrest)%(br)Ain’t enough alcohol in the world to make what I’ve seen okay.%(stoptalk)"
+			"%(MRrelax)Whys %(positive)%(negative) beer? Littlebig Hayden enjoys the wine of strawberrykind. %(HTrest)%(br)Beer’s cheaper.%(stoptalk)"
+			"%(MRrelax)Do %(diminutive) mortals share? %(HTneut)%(br)..Huh? %(MRrelax)%(br)The %(positive)beers! Do %(diminutive) mortals share? %(HTneut)%(br)It’s just a song, Mori.%(stoptalk)"
+			"%(Hpgdead)%(MRfrust)Smacks.%(HTpgdead)%(br)\w8...Ow."
+			"%(MRmelan)Hmmmm %(haydennick) %(negative)annoying."
+		}
+		{
+			"%(morisaying)%(HTneut)What the FUCK does that mean?!"
+			"%(morisaying)%(HTneut)You make no damn sense halfa the time."
+			"%(morisaying)%(HTneut)Do I even want to know what that means?%(MRrelax)%(br):3 :3"
+		}
+		"%(morisaying)%(HTrest)That’s nice, Mori."
+		"%(MRfrust)Featherfucks.%(HThead)Mori noooo."
+		{
+			"%(Hneut)\1Hmmm.%(MRrelax)Mmmh?%(HTneut)%(br)Sorry if this ain’t my place ta ask, \w2but do you ever talk ta the other gods?"
+			--
+			"%(MRrelax)%(br)Reaches of influence left alone, Mori observes life death. %(HThead)%(br)That ain’t what I asked."
+			"%(godinfo)"
+			"%(godinfo)"
+		}
+		{
+			"%(HTneut)So uh, do ya ever interact with other gods?%(MRrelax)Yesyes!!%(HTneut)What are they like?"
+			--
+			"%(MRrelax)Hmmmm, \w8%(negative)no."
+			"%(godinfo)"
+			"%(godinfo)"
+		}
+		
+		
+		"\![raise,OnHaydenRezTalk]"
+	}else{
+	
+		"%(MRrelax):3"	
+		"%(MRfrust)A world of tither and toil and %(negative)wish roil. \w8%(MRmelan)Sit with me a while, little soul, and I will let you fade away in peace. \w8You do not have to try again, %(diminutive) small one."
+		"%(MRthink)Minutes, hours, days. \w9This means little to oh me my. \w8Passes ever-shifting, ever-constant, changing all and none. \w8Minutes are hours in this place."
+		"%(MRmelan)If wonder %(haydennick) %(positive)okay. \w4They many %(negative)sads in shifting times."
+		"%(moristim)\n\n[half]%(moristim)"
+		"%(MRrelax)The early worms find the bird, and so life continues."
+		"%(MRmelan)Things must %(negative)end, \w4%(MRthink)yet %(negative)death brings new %(positive) life!"
+		"%(MRfrust)Actions and actions and actions and actions and actions are wordloud."
+		"%(MRrelax)Each step taken, one step closer and one step further. \w4Miles of thousands and thousands of walks!"
+		"%(MRthink)Beholding beauty in eyes of bees and holding bees in the eyes of beauty."
+		"%(MRrelax)Flocking and feathers with birds and moths and dogs and cups and lizards."
+		"%(MRfrust)Bite bite bite. Hand %(negative)bite feed hurt."
+		"%(MRrelax)Counting eggie and egging countie. \w6%(MRmelan)Lost eggcount %(negative)."
+		"%(MRfrust)Book judgment leads to %(negative) walks and talks."
+		"%(MRmelan)Blazing fire irons go, exhausted %(diminutive) flame burning bright until metalwork deathdies."
+		"%(MRfrust) Nononono, we can sleep that bridge when we die %(negative)foolish %(spirit)."
+		"%(MRrelax)Trades of jacks, \w2master of fun! \w4Better than one to master."
+		"%(morisaying)"
+		"%(morisaying)"
+		"%(morisaying)"
+		"\![raise,OnHaydenDeathTalk]"
+		"\![raise,OnHaydenDeathTalk]"
+		"\![raise,OnSoulGain]"
+		"\![raise,OnSoulGain]"
+	}
+	
+	
+}
+
+beerchain
+{{CHAIN
+	beers--
+	"%(HTrest)%beers bottles of beer on the wall, \w2%beers bottles of beeeeeer. \w4Take one down and pass it around, %(beers-1) bottles of beer on the wall.%(stoptalk)"
+	"%(HTrest)%beers bottles of beer on the wall, \w2%beers bottles of beer. \w4Take one down and pass it around, %(beers-1) bottles of beer on the wall!%(stoptalk)"
+	"%(HTrest)%beers bottles of beeeeer on the walllll, \w2%beers bottles of beeeeeer. \w4Take one down and pass it arrrrround, %(beers-1) bottles of beer on the wallllllll.%(stoptalk)"
+	"%(HTrest)%beers bbbbottles of BEER on the wall, \w2%beers bottles of BEEEEER! \w4%(HTshout)Take one doWWwWn and pass it arRRrround, %(beers-1) bottles of beer on the wallllllll!!!!%(stoptalk)%(MRfrust)How manys beers do %(negative)you need?!%(HTcross)%(br)Yes.%(stoptalk)\e:chain=end"
+}}CHAIN
+
+OnBeerDecrement{
+	beers--
+}
+
+ibuprofen
+{{CHAIN
+	"Ibuprofen"
+	"Ibuprofen \e:chain=ibuprofenend"
+	
+}}CHAIN
+
+ibuprofenend
+{{CHAIN
+	ibuprofengirl = 2
+	
+	"Hot girls in my phone\e:chain=end"
+}}CHAIN
+
+
+//This is usually random dialogue and boots both.
+OnHaydenRezTalk{
+	
+	
+	if souls > 0{
+		"%(MRmelan)Oh %(haydennick), \w4 fading and wading in time you have run out.%(HTneut).\w2.\w2.\w2.What does that mean?%(MRrelax)%(br)Off off you go now! Fairest of wells!%(HTrest)%(br)Oh.\w4 Seeya then.%(stoptalk)\w8\w8%(stopotherhayden)"
+		"%(MRmelan)Oh to be loneliest of lonelies, %(diminutive) Hayden %(linger)s no longer.%(HTneut)Oh, \w2time’s up?%(MRmelan)Yesyes... \w4%(MRrelax)Howeverperchance we soon see again!%(Hrest)Sheesh, \w2just visit me instead. \w4Anyways later, \w2Mori.%(stoptalk)\w8\w8%(stopotherhayden)"
+		"%(HTrest)Mmm, \w3I can feel mortality reaching for me again.%(MRrelax)Yesyes! \w4Time for littlebig Hayden home go. \w8Skedaddle on! \w8Continue death of cycles.%(HTrest)%(br)Yeah, yeah.%(stoptalk)\w8\w8%(stopotherhayden)"
+		
+		if beers <= 85{
+			"%(HTrest)%beers bottles of beer on the wall,\w2 %beers bottles of beer.\w4 Take one down and pass it around-%(MRfrust)Rrrr%(Hneut)\1 %(negative)%(negative)- \w2LEAVE.\w4%(stopotherhayden)"
+		}
+		haydendead = 0
+		beers = 99
+		souls--
+	}else{
+		"%(HTcross)I'd leave, but looks like that guy I poisoned hasn't died yet. No souls.%(stoptalk) "
+		"%(HTneut)Mori, \w4why am I still here? \w4Surely my time is up by now.%(MRmelan)Ah- \w4Regrettably regrettable, \w4it would appear we have no souls to send littlebig Hayden home.%(Hneut)\1%(br).\w2.\w2.\w2.\w2.\w2.\w2%(HTshout)WHAT?!%(stoptalk)"
+		"%(MRmelan).\w4.\w4.hmmm.%(HTrest)Hmm?%(MRmelan)%(br)Timing is ringing for %(haydennick) to leave, yet souls are needed in collection. \w8Linger longer is necessary.%(Hrest)\1%(br)sigh.\w4.\w4. \w4%(HTrest)Fine.%(Hrest)"
+	}
+	--
+	"\e:chain=end"
+	
+
+}
+
+//This is usually random dialogue and boots both.
+OnHaydenDeathTalk{
+	HaydenDeath
+	--
+	case haydencauseofdeath{
+		when 0{ //car
+			"%(MRrelax)AH-\w5 %(MRthink)Oh hello %(haydennick)-%(HTpgdead)FUCKING.\w5 HELL.%(MRmelan)%(br)Oh are-%(HTshout)%(br)THAT FUCKING DRIVER DIDN’T FUCKING LOOK!\w4 OW. \w4 WHAT THE FUUUUCK!!!%(MRrelax)%(Hshout)%(br)Snrk-%(HTcross)%(br)Oh shut up.%(stoptalk)"
+
+		}
+		when 1{ //don't wanna talk
+			"%(morigreeting)"
+			--
+			"%(HTpgdead).\w4.\w4.\w4hi Mori.%(MRrelax)%(Hpgdead)%(br)What %(positive)death brings you to mine domain?%(HTcross)%(br)Tch, \w4I don’t wanna talk ‘bout it. \w4%(HTrest)Just send me back whenever.%(stoptalk)"
+		}
+		when 2{ //killed in chase
+			"%(HTpgdead)AAAAAH! \w6%(HTshout)FUCK!!!%(MRneut)What a lively life of time. \w8Whatever do?%(HTshout)%(br)Not! \w4Fucking! \w4Fast! \w4Enough! \w8\w8GAH! %(MRneut)%(br)Take your taken time.%(HThead)%(br)Urghhh.%(stoptalk)"
+			
+			"%(morigreeting)%(HTpgdead).\w4.\w4.%(MRmelan)%(br)Littlebig Hayden? Whatever happened to your little spirit?%(HTpgdead)%(br)So cold.\w4.\w4 %(MRmelan)%(br)Hither, \w2hither.%(HTcross)%(br)Street fight. \w5Buried. \w5Snow. \w9%(HTrest)Just.\w2.\w2.\w2 leave me alone%(stoptalk)."
+		}
+		when 3{ //bled out
+			"%(morigreeting)"
+			--
+			"%(HTpgdead)Wait no-%(MRrelax)No?\w4 A %(negative) no?%(HThead)%(br)Ugh, \w4that’s gonna leave some trauma.%(MRrelax)%(br)????%(HThead)%(br)...Bled out on someone. \w4%(HTneut)I tried to tell them not to bother, but they tried to save me anyway.%(Hrest)\w4\w4Sigh... %(stoptalk)"
+		}
+		when 4{ //poison
+			"%(morigreeting)"
+			--
+			"%(HTpgdead).\w4.\w4.\w4mmmnnmmnm.%(MRmelan)%(br)Oh my %(haydennick), \w4greeniest of gills dost you haviest have! \w4Has an illness brought you to us on high?%(HTpgdead)%(br)Ssssomeone slipped somethin’ in my drink\w2.\w2.\w2.%(MRmelan)%(br)Unfortunate tragedies to have it end this way. \w4Perhaps luck shall be better in the future.%(HTpgdead)%(br)shuddup%(stoptalk)"
+		}
+		others{ 
+			"%(morigreeting)"
+			--
+			"%(HTpgdead)nnnnngh..."
+		}
+	
+	}
+
+
+}
+
+testtalk{
+	"%(HTneut)Mori, \w4why am I still here? \w4Surely my time is up by now.%(MRmelan)Ah- \w4Regrettably regrettable, \w4it would appear we have no souls to send littlebig Hayden home.%(Hneut).\w2.\w2.\w2.\w2.\w2.\w2%(HTshout)%(br)WHAT?!%(stoptalk)"
+}
+
+OnSoulGain{
+	souls++
+	"Oh! My, %(positive) me, \w4%(MRthink)hello little soul. \w8Was that %(deathtype) mean to you? \w8Do you wish to rest?"
+	"I will be, and be will my! Yes, %(diminutive) %(positive) me, \w4%(MRthink)hello to %(spirit). \w8You may rest a while and I will give you a better life. \w8It seems %(haydennick) has been busy."
+}
+
+//handles the base visuals without much chatting
+HaydenDeath{
+	haydendead = 1
+	haydencauseofdeath = RAND(5)
+	//0- car
+	//1- don't wanna talk
+	//2- killed in chase
+	//3- bled out
+	//4- poison
+	"%(Hfall)\w8"
+
+}
+
+
+
+
+
+//Minute passing things
+OnMinuteChange{
+	_rand = RAND(5)
+	
+	//Silent mode changes.
+	if haydendead == 0 && minute % 3 == 0 && aitalkinterval == 0 {
+		if _rand == 0{
+			//Silent Hayden entrance
+			HaydenDeath
+		}elseif _rand == 1{
+			//Random Soul Gain
+			souls++
+		}
+		
+	}
+	
+}
+
+

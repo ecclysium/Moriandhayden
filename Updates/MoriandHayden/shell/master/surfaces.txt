@@ -1,0 +1,515 @@
+
+descript
+{
+	version,1
+}
+
+//—————————————————————————————— Sakura surfaces ——————————————————————————————
+
+surface0
+{
+	//collision0,0,0,130,65,head
+	
+	//Example code for blink animation - uncomment if you want it
+	//animation0.interval,random,4
+	//animation0.pattern0,overlay,101,0,0,0
+	//animation0.pattern1,overlay,102,100,0,0
+	//animation0.pattern2,overlay,-1,50,0,0
+	
+	
+	//Example code for a talk animation - uncomment if you want it
+	// animation1.interval,talk,4
+	// animation1.pattern0,alternativestart,(2,3,4)
+	
+	// animation2.interval,never
+	// animation2.pattern0,overlay,103,0,0,0
+	// animation2.pattern1,overlay,104,200,0,0
+	// animation2.pattern2,overlay,-1,200,0,0
+	
+	// animation3.interval,never
+	// animation3.pattern0,overlay,103,0,0,0
+	// animation3.pattern1,overlay,-1,200,0,0
+	
+	// animation4.interval,never
+	// animation4.pattern0,overlay,104,0,0,0
+	// animation4.pattern1,overlay,105,200,0,0
+	// animation4.pattern2,overlay,-1,200,0,0
+}
+
+//Mori neutral
+surface100{
+
+	//Outline dressup
+	animation000.interval,bind
+	animation000.pattern0,overlay,1000,0,0,0
+
+	//BODY
+	animation010.interval,runonce
+	animation010.pattern0,overlay,10000,0,0,0
+	
+	//talk
+	animation030.interval,talk,4
+	animation030.pattern0,replace,13000,0,123,216
+	animation030.pattern1,replace,13001,80,123,216
+	animation030.pattern2,replace,-1,99,0,0	
+	
+	//base eyes
+	animation210.interval,runonce
+	animation210.pattern0,overlay,11000,0,0,0
+	
+	//blink
+	animation211.interval,random,4
+	animation211.pattern0,stop,210
+	animation211.pattern1,overlay,11000,0,0,0
+	animation211.pattern2,overlay,11001,50,0,0
+	animation211.pattern3,overlay,11002,50,0,0
+	animation211.pattern4,overlay,11000,90,0,0
+
+	
+	//tail
+	animation500.interval,runonce
+	animation500.pattern0,overlay,50000,0,0,0
+	
+	//Soul number 0
+	animation700.interval,never
+	animation700.pattern1,overlay,71000,0,58,339
+
+
+}
+
+//Mori thinking
+surface101{
+
+	//Outline dressup
+	animation000.interval,bind
+	animation000.pattern0,overlay,1001,0,0,0
+	
+	//BODY
+	animation010.interval,runonce
+	animation010.pattern0,overlay,10010,0,0,0
+	
+	//talk
+	animation030.interval,talk,4
+	animation030.pattern0,replace,13010,0,40,229
+	animation030.pattern1,replace,13011,80,40,229
+	animation030.pattern2,replace,-1,99,0,0	
+	
+	//base eyes
+	animation210.interval,runonce
+	animation210.pattern0,overlay,11010,0,0,0
+	
+	//blink
+	animation211.interval,random,4
+	animation211.pattern0,stop,210
+	animation211.pattern1,overlay,11010,0,0,0
+	animation211.pattern2,overlay,11011,50,0,0
+	animation211.pattern3,overlay,11012,50,0,0
+	animation211.pattern4,overlay,11010,90,0,0
+	
+
+	
+	//tail
+	animation500.interval,runonce
+	animation500.pattern0,overlay,50010,0,0,0
+	
+	//Soul number 0
+	animation700.interval,never
+	animation700.pattern1,overlay,71000,0,-8,259
+
+}
+
+//Mori frustrated
+surface102{
+
+	//Outline dressup
+	animation000.interval,bind
+	animation000.pattern0,overlay,1002,0,0,0
+	
+	//BODY
+	animation010.interval,runonce
+	animation010.pattern0,overlay,10020,0,0,0
+	
+	//talk
+	animation030.interval,talk,4
+	animation030.pattern0,overlay,13020,0,0,0
+	animation030.pattern1,overlay,13021,80,0,0
+	animation030.pattern2,overlay,-1,100,0,0	
+	
+	//base eyes
+	animation210.interval,runonce
+	animation210.pattern0,overlay,11020,0,0,0
+	
+	//blink
+	animation211.interval,random,4
+	animation211.pattern0,stop,210
+	animation211.pattern1,overlay,11020,0,0,0
+	animation211.pattern2,overlay,11021,50,0,0
+	animation211.pattern3,overlay,11022,50,0,0
+	animation211.pattern4,overlay,11020,90,0,0
+	
+
+	//tail
+	animation500.interval,runonce
+	animation500.pattern0,overlay,50020,0,0,0
+	
+	//Soul number 0
+	animation700.interval,never
+	animation700.pattern1,overlay,71000,0,58,339
+
+}
+
+//Mori melancholy
+surface103{
+
+	//Outline dressup
+	animation000.interval,bind
+	animation000.pattern0,overlay,1003,0,0,0
+	
+	//BODY
+	animation010.interval,runonce
+	animation010.pattern0,overlay,10030,0,0,0
+	
+	//talk
+	animation030.interval,talk,4
+	animation030.pattern0,overlay,13030,0,0,0
+	animation030.pattern1,overlay,13031,80,0,0
+	animation030.pattern2,overlay,-1,100,0,0	
+	
+	//base eyes
+	animation210.interval,runonce
+	animation210.pattern0,overlay,11030,0,0,0
+	
+	//blink
+	animation211.interval,random,4
+	animation211.pattern0,stop,210
+	animation211.pattern1,overlay,11030,0,0,0
+	animation211.pattern2,overlay,11031,50,0,0
+	animation211.pattern3,overlay,11032,50,0,0
+	animation211.pattern4,overlay,11030,90,0,0
+	
+	//tail
+	animation500.interval,runonce
+	animation500.pattern0,overlay,50030,0,0,0
+	
+	//Soul number 0
+	animation700.interval,never
+	animation700.pattern1,overlay,71000,0,58,339
+
+}
+
+//—————————————————————————————— Kero surfaces ——————————————————————————————
+
+surface10
+{
+	collision0,0,0,130,65,head
+}
+
+
+//Append Hayden surfaces to Mori (and some tails when needed)
+surface.append100-1000{
+
+	//rest
+	animation100.interval,never
+	animation100.pattern1,overlay,30000,0,0,0
+	
+	//arms crossed
+	animation101.interval,never
+	animation101.pattern1,overlay,30010,0,0,0
+	
+	//hands on head
+	animation102.interval,never
+	animation102.pattern1,overlay,30020,0,0,0
+	
+	//yelling
+	animation103.interval,never
+	animation103.pattern1,overlay,30030,0,0,0
+	
+	//neutral
+	animation104.interval,never
+	animation104.pattern1,overlay,30040,0,0,0
+	
+	//blur falling
+	animation108.interval,never
+	animation108.pattern1,overlay,30080,0,0,-25
+	animation108.pattern2,overlay,30080,10,0,-10
+	animation108.pattern3,overlay,30080,10,0,5
+	animation108.pattern4,overlay,30080,10,0,20
+	animation108.pattern5,overlay,30080,10,0,50
+	animation108.pattern6,overlay,30080,10,0,80
+	animation108.pattern7,overlay,30080,10,0,110
+	animation108.pattern8,overlay,30080,10,0,150
+	animation108.pattern9,overlay,30080,10,0,200
+	animation108.pattern10,overlay,30080,10,0,260
+	animation108.pattern11,overlay,30090,10,0,0
+	
+	//dead
+	animation109.interval,never
+	animation109.pattern0,overlay,30090,0,0,0
+	
+	
+	//Hayden talk frames------------------------------------
+	
+	//rest
+	animation300.interval,never
+	animation300.pattern0,parallelstop,(301,303,304)
+	animation300.pattern1,overlay,33001,0,0,0
+	animation300.pattern2,overlay,-1,100,0,0
+	animation300.pattern3,overlay,33001,90,0,0
+	animation300.pattern4,overlay,-1,130,0,0
+	animation300.pattern5,start,300
+	
+	//arms crossed
+	animation301.interval,never
+	animation301.pattern0,parallelstop,(300,303,304)
+	animation301.pattern1,overlay,33011,0,0,0
+	animation301.pattern2,overlay,-1,100,0,0
+	animation301.pattern3,overlay,33011,90,0,0
+	animation301.pattern4,overlay,-1,130,0,0
+	animation301.pattern5,start,301
+	
+	
+	//yelling
+	animation303.interval,never
+	animation303.pattern0,parallelstop,(300,301,304)
+	animation303.pattern1,overlay,33031,0,0,0
+	animation303.pattern2,overlay,-1,140,0,0
+	animation303.pattern3,overlay,33031,90,0,0
+	animation303.pattern4,overlay,-1,130,0,0
+	animation303.pattern5,start,303
+	
+	//neutral
+	animation304.interval,never
+	animation304.pattern0,parallelstop,(300,301,303)
+	animation304.pattern1,overlay,33040,0,0,0
+	animation304.pattern2,overlay,-1,140,0,0
+	animation304.pattern3,overlay,33040,90,0,0
+	animation304.pattern4,overlay,-1,130,0,0
+	animation304.pattern5,start,304
+	
+	animation399.interval,yen-e
+	animation399.pattern0,parallelstop,(300,301,303,304)
+	
+	
+	//Souls ---------------------------
+	//Soul number 0 is by pose for Hamlet purposes
+
+	//Soul number 1
+	animation701.interval,never
+	animation701.pattern1,overlay,71010,0,209,361
+
+	//Soul number 2
+	animation702.interval,never
+	animation702.pattern1,start,802
+
+	//Soul number 3
+	animation703.interval,never
+	animation703.pattern1,overlay,71030,0,263,395
+
+	//Soul number 4
+	animation704.interval,never
+	animation704.pattern1,overlay,71040,0,111,439
+
+	//Soul number 5
+	animation705.interval,never
+	animation705.pattern1,start,805
+
+	//Soul number 6
+	animation706.interval,never
+	animation706.pattern1,overlay,71060,0,304,299
+
+	//Soul number 7
+	animation707.interval,never
+	animation707.pattern1,overlay,71070,0,26,455
+
+	//Soul number 8
+	animation708.interval,never
+	animation708.pattern1,start,808
+
+	//Soul number 9
+	animation709.interval,never
+	animation709.pattern1,overlay,71090,0,334,405
+
+	//Soul number 10
+	animation710.interval,never
+	animation710.pattern1,overlay,71100,0,272,369
+
+	//Soul number 11
+	animation711.interval,never
+	animation711.pattern1,start,811
+
+	//Soul number 12
+	animation712.interval,never
+	animation712.pattern1,overlay,71120,0,123,225
+
+	//Soul number 13
+	animation713.interval,never
+	animation713.pattern1,overlay,71130,0,133,283
+
+	//Soul number 14
+	animation714.interval,never
+	animation714.pattern1,start,814
+
+	//Soul number 15
+	animation715.interval,never
+	animation715.pattern1,overlay,71150,0,162,243
+
+	//Soul number 16
+	animation716.interval,never
+	animation716.pattern1,overlay,71160,0,123,387
+
+	//Soul number 17
+	animation717.interval,never
+	animation717.pattern1,start,817
+
+	//Soul number 18
+	animation718.interval,never
+	animation718.pattern1,overlay,71180,0,133,290
+
+	//Soul number 19
+	animation719.interval,never
+	animation719.pattern1,start,819
+
+	//Soul number 20
+	animation720.interval,never
+	animation720.pattern1,start,820
+
+	//Animated souls---------------------------------------
+		
+	//Soul number 2
+	animation802.interval,never
+	animation802.pattern0,overlay,71020,0,275,4
+	animation802.pattern0,overlay,71020,200,275,4
+	animation802.pattern2,alternativestart,(802,803)
+	animation802.pattern3,overlay,-1,0,275,4
+
+	animation803.interval,never
+	animation803.pattern1,overlay,71020,0,275,4
+	animation803.pattern2,overlay,71021,30,275,4
+	animation803.pattern4,overlay,71022,30,275,4
+	animation803.pattern5,overlay,71021,40,275,4
+	animation803.pattern6,overlay,71020,35,275,4
+	animation803.pattern7,alternativestart,(802,803)
+	animation803.pattern8,overlay,-1,0,275,4
+
+	//Soul number 5
+	animation805.interval,never
+	animation805.pattern0,overlay,71050,0,196,54
+	animation805.pattern0,overlay,71050,200,196,54
+	animation805.pattern2,alternativestart,(805,806)
+	animation805.pattern3,overlay,-1,0,396,54
+
+	animation806.interval,never
+	animation806.pattern1,overlay,71050,0,196,54
+	animation806.pattern2,overlay,71051,30,196,54
+	animation806.pattern4,overlay,71052,30,196,54
+	animation806.pattern5,overlay,71051,40,196,54
+	animation806.pattern6,overlay,71050,35,196,54
+	animation806.pattern7,alternativestart,(805,806)
+	animation806.pattern8,overlay,-1,0,196,54
+
+	//Soul number 8
+	animation808.interval,never
+	animation808.pattern0,overlay,71080,0,73,147
+	animation808.pattern0,overlay,71080,200,73,147
+	animation808.pattern2,alternativestart,(808,809)
+	animation808.pattern3,overlay,-1,0,73,147
+
+	animation809.interval,never
+	animation809.pattern1,overlay,71080,0,73,147
+	animation809.pattern2,overlay,71081,30,73,147
+	animation809.pattern4,overlay,71082,30,73,147
+	animation809.pattern5,overlay,71081,40,73,147
+	animation809.pattern6,overlay,71080,35,73,147
+	animation809.pattern7,alternativestart,(808,809)
+	animation809.pattern8,overlay,-1,0,73,147
+
+	//Soul number 11
+	animation811.interval,never
+	animation811.pattern0,overlay,71110,0,347,130
+	animation811.pattern0,overlay,71110,200,347,130
+	animation811.pattern2,alternativestart,(811,812)
+	animation811.pattern3,overlay,-1,0,347,130
+
+	animation812.interval,never
+	animation812.pattern1,overlay,71110,0,347,130
+	animation812.pattern2,overlay,71111,30,347,130
+	animation812.pattern4,overlay,71112,30,347,130
+	animation812.pattern5,overlay,71111,40,347,130
+	animation812.pattern6,overlay,71110,35,347,130
+	animation812.pattern7,alternativestart,(811,812)
+	animation812.pattern8,overlay,-1,0,347,130
+
+	//Soul number 14
+	animation814.interval,never
+	animation814.pattern0,overlay,71140,0,399,116
+	animation814.pattern0,overlay,71140,200,399,116
+	animation814.pattern2,alternativestart,(814,815)
+	animation814.pattern3,overlay,-1,0,399,116
+
+	animation815.interval,never
+	animation815.pattern1,overlay,71140,0,399,116
+	animation815.pattern2,overlay,71141,30,399,116
+	animation815.pattern4,overlay,71142,30,399,116
+	animation815.pattern5,overlay,71141,40,399,116
+	animation815.pattern6,overlay,71140,35,399,116
+	animation815.pattern7,alternativestart,(814,815)
+	animation815.pattern8,overlay,-1,0,399,116
+
+	//Soul number 17
+	animation817.interval,never
+	animation817.pattern0,overlay,71170,0,328,76
+	animation817.pattern0,overlay,71170,200,328,76
+	animation817.pattern2,alternativestart,(817,818)
+	animation817.pattern3,overlay,-1,0,328,76
+
+	animation818.interval,never
+	animation818.pattern1,overlay,71170,0,328,76
+	animation818.pattern2,overlay,71171,30,328,76
+	animation818.pattern4,overlay,71172,30,328,76
+	animation818.pattern5,overlay,71171,40,328,76
+	animation818.pattern6,overlay,71170,35,328,76
+	animation818.pattern7,alternativestart,(817,818)
+	animation818.pattern8,overlay,-1,0,328,76
+
+	//Soul number 19 -- funky to prevent overlap
+	animation819.interval,never
+	animation819.pattern0,overlay,71190,0,366,338
+	animation819.pattern0,overlay,71190,200,366,338
+	animation819.pattern2,alternativestart,(819,822)
+	animation819.pattern3,overlay,-1,0,366,338
+
+	animation822.interval,never
+	animation822.pattern1,overlay,71190,0,366,338
+	animation822.pattern2,overlay,71191,30,366,338
+	animation822.pattern4,overlay,71192,30,366,338
+	animation822.pattern5,overlay,71191,40,366,338
+	animation822.pattern6,overlay,71190,35,366,338
+	animation822.pattern7,alternativestart,(819,822)
+	animation822.pattern8,overlay,-1,0,366,338
+
+	//Soul number 20
+	animation820.interval,never
+	animation820.pattern0,overlay,71200,0,241,189
+	animation820.pattern0,overlay,71200,200,241,189
+	animation820.pattern2,alternativestart,(820,821)
+	animation820.pattern3,overlay,-1,0,241,189
+
+	animation821.interval,never
+	animation821.pattern1,overlay,71200,0,241,189
+	animation821.pattern2,overlay,71201,30,241,189
+	animation821.pattern4,overlay,71202,30,241,189
+	animation821.pattern5,overlay,71201,40,241,189
+	animation821.pattern6,overlay,71200,35,241,189
+	animation821.pattern7,alternativestart,(820,821)
+	animation821.pattern8,overlay,-1,0,241,189
+
+
+
+
+
+
+}
+
+
+
+
