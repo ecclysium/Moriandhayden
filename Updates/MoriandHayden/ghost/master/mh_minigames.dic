@@ -148,7 +148,7 @@ displayMaze : all{
 		"\n%(mazeWinDialogue)\n\![*]\q[Menu,OnSakuraMenu]\e"
 	}
 	
-	"\n[800]"
+	"\n[800]\f[height,%textsize]"
 	
 	if !(BITWISE_AND(_inverse, 8) > 0); "\![*]\q[Go up,OnMazeForward]\n" 
 		else; "\![*]\f[color,disable]Go up\f[color,default]\n"
@@ -159,7 +159,9 @@ displayMaze : all{
 	if !(BITWISE_AND(_inverse, 4) > 0); "\![*]\q[Go right,OnMazeRight]"
 		else; "\![*]\f[color,disable]Go right\f[color,default]\n"
 
-	"\n[-900]"
+	"\n[-900]\f[height,14]"
+	
+	
 	if turns == 0{
 		//The spacing is wonky but its the 24hrs of the jam and I don't have the energy to go hunting
 		"\n[-100]%(mazeIntroDialogue)"

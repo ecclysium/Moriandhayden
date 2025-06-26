@@ -5,7 +5,7 @@ type,ghost
 
 shiori,yaya.dll
 
-craftman,
+craftman,dransnake and Ecclysium
 craftmanw,
 craftmanurl,
 

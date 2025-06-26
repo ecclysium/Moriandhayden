@@ -20,11 +20,11 @@ RandomTalk : nonoverlap_pool
 		"%(MRthink)Oh, what a %(positive)ly good sight, %(diminutive) soul.\w4.\w4."
 		"%(MRmelan)Oh, to sleep, perchance to dream. What a weary world and waiting for will to wither a little more. \w8Come to me, dream again, and let me send you on your way.\w4.\w4."
 		"%(MRrelax)Hmmm %(positive)? \w4%(MRfrust)No, %(negative)%(negative)"
-		"%(MRmelan)To steep in the depths, \w4the blood, \w4the edges of consciousness stretching into the sky to mingle with the stars. \w8Being inundated with the dust of others, \w4the %(positive)fertilizer. \w8You are what you eat. \w8And it is all beautiful. "
+		if goretalk == 1; "%(MRmelan)To steep in the depths, \w4the blood, \w4the edges of consciousness stretching into the sky to mingle with the stars. \w8Being inundated with the dust of others, \w4the %(positive)fertilizer. \w8You are what you eat. \w8And it is all beautiful. "
 		"%(MRthink)Oh %(diminutive) %(spirit), we’re truliest in it now."
 		"%(MRrelax)Hmmmm when the wheel halts, turn to %(positive)wonder."
 		"%(MRrelax)Fading and wading and watching %(positive) lifesouls grow and tumble."
-		"%(MRmelan)Ah, %(linger). %(br).\w2.\w2.\w2.\w2.\w2.\w2.\w2.\w2.\w2.\w2.\w2.\w2.\w2.\w2 %(br)%(MRrelax)Thankie."
+		"%(MRmelan)Ah %(linger). %(br).\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4.\w4. %(br)%(MRrelax)Thankie. "
 		"%(MRmelan)Shattering and spattering and grinding and finding."
 		"%(MRthink)Pondering and wandering and searching and lurking."
 		"%(MRfrust)Killing and spilling, \w4hiding yet climbing."
@@ -53,7 +53,8 @@ RandomTalk : nonoverlap_pool
 			"%(HTneut)No. Borin’ here.%(stoptalk)"
 			"%(HTcross)Could use some %(fooddrink).%(stoptalk)"
 			"%(HTrest)It’s whateva. %(stoptalk)"
-			"%(HTcross)That time they severed my spine still hurts. \w8Add a couch or somethin’, Mori. %(stoptalk)"
+			"%(HTcross)What's with the lack 'f furniture? \w8You're notta good couch."
+			if goretalk == 1; "%(HTcross)That time they severed my spine still hurts. \w8Add a couch or somethin’, Mori. %(stoptalk)"
 		}
 		"%(HTrest) Hmm.\w4.\w4.%(fooddrink), %(fighttypes), %(bakedgood).\w4.\w4. Oh, I wish I had %(vice).\w4.\w4.%(stoptalk)"
 		"%(HTcross)Turns out gals have a lotta thoughts when ya have a death loop going on.%(MRmelan)%(Hcross)Did she leaveforgo this oh so littlepain you?%(HTneut)%(br).\w4.\w4.\w4.\w4%(HThead)No,\w2 it got weird really fast.%(stoptalk)"
@@ -61,10 +62,10 @@ RandomTalk : nonoverlap_pool
 		{
 			"%(MRneut)Hm, yes, %(haydennick), what was your favorite %(negative)%(positive) death? "
 			--
-			"%(HTneut)Gettin’ sawed in half. Next question.%(stoptalk)"
+			if goretalk == 1; "%(HTneut)Gettin’ sawed in half. Next question.%(stoptalk)"
 			"%(HTcross)Stop it with the small talk, I’m tryna sleep. %(stoptalk)"
 			"%(HTrest)Some poisons feel good ‘till they kill ya.%(stoptalk)"
-			"%(HTcross)Some guy tried ta steal my kidneys once. \w8Failed.\w8 Still bled out. \w8\w8%(HTrest)Not my fave, but he gave it a good effort.%(stoptalk)"
+			if goretalk == 1; "%(HTcross)Some guy tried ta steal my kidneys once. \w8Failed.\w8 Still bled out. \w8\w8%(HTrest)Not my fave, but he gave it a good effort.%(stoptalk)"
 			"%(HTneut)Most poisoning. You don’t know shit going on.%(stoptalk)"
 			"%(HTneut)The adrenaline from knife fights gets me goin’. Good burn. %(stoptalk)"
 		}
@@ -100,12 +101,49 @@ RandomTalk : nonoverlap_pool
 		{
 			"%(HTneut)So uh, do ya ever interact with other gods?%(MRrelax)Yesyes!!%(HTneut)What are they like?"
 			--
-			"%(MRrelax)Hmmmm, \w8%(negative)no."
+			"%(MRrelax)%(br)Hmmmm, \w8%(negative)no."
 			"%(godinfo)"
 			"%(godinfo)"
 		}
+		if ibuprofengirl == 0; "%(HTneut)Oh yanno, I recently hooked up with someone.%(MRthink)Oh %(positive) news! \w4Does %(haydennick) likelike?%(HTneut)%(br)Heh, \w2yea. \w4Been goin’ steady for a lil while.%(stoptalk)\e:chain=ibuprofenone"
+		if ibuprofengirl > 0{
+			"%(MRrelax)Curiosity bubbling and toiling about little Haydenpartner. \w4Speak more if you please!%(HTneut)Oh yeah? \w4Well, \w2she certainly is a sight to behold after a long day. \w4Pale white skin with vibrant red hair ta go with it. \w4%(HTrest)Lotta curves too.%(MRrelax)%(br)Is prettypretty?%(HTrest)%(br)Somethin’ like that.\e:chain=ibuprofentwo"
+			"%(MRrelax)Oh so %(positive)happy to know Hayden found %(positive)relations! Particularly after much %(negative)breakups and heartaches.%(HTcross).\w2.\w2.\w2yeeeeah. \w4Me too.%(MRrelax)%(br)Was sarcasms?%(HTrest)%(br)...Nah."
+		}
+		if ibuprofengirl == 2; 			"%(HTneut)...Yanno, \w2I don’t think I’m really cut out for romance.%(MRmelan)Is %(diminutive) Hayden still heartbroken..?%(HTrest)%(br)I dunno, maybe. \w4%(HTneut)But at least I have Ibuprofen to dull the pain. \w4She really is a beautiful woman, \w2takes my breath away just thinkin’ ‘bout her.%(MRthink)Pfftsnrk haha. \w4Okay maybe painkillerlovelygal funny."
 		
 		
+		"%(MRrelax)Why %(haydennick) sleep-eep many time? \w4Death rest enough not?%(HTneut)Fuckin’ hurts like hell to die. \w4Even if I ain’t in my body right now, \w2I’m exhausted just gettin’ here."
+		"%(MRrelax)Oh %(diminutive) Hayden, regale a tale of times past?%(HTrest)No."
+		"%(moristim)%(HTneut)Why are ya doin’ that?%(MRrelax)%(br)Hehe %(moristim) %(moristim)"
+		"%(MRrelax)Hayden!! Littlebug favorite which-what?%(HTneut)Littlebug favorite... \w4Oh, \w2uhhh. \w4Guess crickets are nice."
+		"%(MRrelax)It will %(negative)rain soon.%(HTneut)...No?"
+		"%(HTshout)OH FUCK-\w8 %(HThead)I left my %(fooddrink) out!%(MRmelan)Unfortunate."
+		"%(MRthink)A forthcoming secret, %(haydennick).%(HTneut)Eh?%(MRthink)%(br)Favoritism :3"
+		"%(MRrelax)Oh %(haydennick), \w4when be alone mine forever?%(HTcross)I ain’t done livin’ yet. \w4Those fuckin’ aerial pricks are back and I still need to teach ‘em a lesson.%(MRmelan)%(br):("
+		
+		"%(MRmelan)Littlebig Hayden, tides down lower than usual. Everything okay?%(Hrest)\1.\w1.\w1.\w1.\w1.\w1.\w1.\w1.\w1.\w1.\w1.\w1.\w1%(HTneut)no.%(MRmelan)%(br)Happen what??%(HTrest)%(br)...Lou left me. Said I wasn’t payin’ enough attention to him n’ alla that.%(MRmelan)%(br)Sorrow discovery.\e:chain=breakupchain"
+		
+		if breakup == 1{
+			"%(MRrelax)Hmmm perchance Hayden forgotmiss friends of old?"
+			--
+			"%(HTcross)Shove off."
+			"%(HTcross)Leave me alone, Mori."
+			"%(HTcross)Why do you care?"
+			"%(HTrest)..."
+			"%(HThead).........."
+			"%(HThead)Don’t wanna talk ‘bout it."
+			"%(HTrest)I don’t wanna talk ‘bout that, Mori."
+			"%(HThead)Leave me be."
+			"%(HTcross)Get off my case, I’m fine."
+			"%(HTcross)Buzz off."
+			"%(HTneut)I wish I coulda stayed friends with Theo... \w4Way too fuckin’ dangerous to stick around her though. \w4I would have hated to see her get hurt because of me. \w4%(HTrest)It’s better this way..."
+			"%(HTneut)Sometimes I miss Jules. \w6But ah, \w4%(HThead)he thinks I’m dead again. \w6Doubt he would take the news that I’m still alive very well, \w2considering last time. \w8Can’t believe he started his own gang over my first death…"
+			if ibuprofengirl == 2; "%(HTrest)Ibuprofen'll never leave me. \w8Soothes my soul."
+		}
+		
+		
+		"\![raise,OnHaydenRezTalk]"
 		"\![raise,OnHaydenRezTalk]"
 	}else{
 	
@@ -124,9 +162,8 @@ RandomTalk : nonoverlap_pool
 		"%(MRrelax)Counting eggie and egging countie. \w6%(MRmelan)Lost eggcount %(negative)."
 		"%(MRfrust)Book judgment leads to %(negative) walks and talks."
 		"%(MRmelan)Blazing fire irons go, exhausted %(diminutive) flame burning bright until metalwork deathdies."
-		"%(MRfrust) Nononono, we can sleep that bridge when we die %(negative)foolish %(spirit)."
+		"%(MRfrust)Nononono, we can sleep that bridge when we die %(negative)foolish %(spirit)."
 		"%(MRrelax)Trades of jacks, \w2master of fun! \w4Better than one to master."
-		"%(morisaying)"
 		"%(morisaying)"
 		"%(morisaying)"
 		"\![raise,OnHaydenDeathTalk]"
@@ -151,18 +188,27 @@ OnBeerDecrement{
 	beers--
 }
 
-ibuprofen
+ibuprofenone
 {{CHAIN
-	"Ibuprofen"
-	"Ibuprofen \e:chain=ibuprofenend"
+	ibuprofengirl = 1
+	"%(MRrelax)Oh %(haydennick)!! We %(positive)desire to hear the regaling of %(diminutive)new partnership!%(HTneut)Huh-? \w4Oh, \w2yeah. \w4%(HTrest)Well she treats me right, \w2that’s for certain. \w4She’s a lovely gal, \w2helps soothe my injuries.%(MRthink)%(br)ooOOOooO pronouns.\e:chain=end"
 	
 }}CHAIN
 
-ibuprofenend
+ibuprofentwo
 {{CHAIN
 	ibuprofengirl = 2
+	"%(MRrelax)Does the lovelygal behold a name to herself?%(HTrest)She sure does.%(MRthink)Tells us! Oh %(positive)please tell!%(HTrest)%(br)Ibuprofen.%(MRrelax)%(br)...........................\w8\w4That’s not really funny,\w2 Hayden.%(HTneut)%(br)Heh- \w4%(HThead)yeah…\e:chain=end"
+
+}}CHAIN
+
+breakupchain
+{{CHAIN
+	breakup = 1
+	"%(HThead)I’m so fuckin’ useless as a partner... %(MRmelan)Oh %(haydennick)... \w4Why carry sucha %(negative) burden upon your littlebig shoulders?%(Hcross)\1-! \w4%(br)%(Hneut)\1................. \w8%(br)%(HThead)....I just wish I knew what was wrong with me."
+	"%(MRmelan)Wrongnothing with %(haydennick), \w2knowest this?%(HTneut)There’s a lot wrong with me.%(MRmelan)%(br)Incorrect-%(HTcross)%(br)Let’s face it, \w2I haven’t had a single successful relationship. \w4They’ve either crashed and burned badly,\w2 or they found me dead on the streets,\w2 or a date didn’t lead %(HTshout)ANYWHERE! \w4%(HThead)Startin’ ta think I’m the problem.\e:chain=end"
 	
-	"Hot girls in my phone\e:chain=end"
+
 }}CHAIN
 
 
@@ -172,17 +218,17 @@ OnHaydenRezTalk{
 	
 	if souls > 0{
 		"%(MRmelan)Oh %(haydennick), \w4 fading and wading in time you have run out.%(HTneut).\w2.\w2.\w2.What does that mean?%(MRrelax)%(br)Off off you go now! Fairest of wells!%(HTrest)%(br)Oh.\w4 Seeya then.%(stoptalk)\w8\w8%(stopotherhayden)"
-		"%(MRmelan)Oh to be loneliest of lonelies, %(diminutive) Hayden %(linger)s no longer.%(HTneut)Oh, \w2time’s up?%(MRmelan)Yesyes... \w4%(MRrelax)Howeverperchance we soon see again!%(Hrest)Sheesh, \w2just visit me instead. \w4Anyways later, \w2Mori.%(stoptalk)\w8\w8%(stopotherhayden)"
+		"%(MRmelan)Oh to be loneliest of lonelies, %(diminutive) Hayden %(linger)s no longer.%(HTneut)Oh, \w2time’s up?%(MRmelan)%(br)Yesyes... \w8%(MRrelax)Howeverperchance we soon see again!%(HTrest)Sheesh, \w2just visit me instead. \w4Anyways later, \w2Mori.%(stoptalk)\w8\w8%(stopotherhayden)"
 		"%(HTrest)Mmm, \w3I can feel mortality reaching for me again.%(MRrelax)Yesyes! \w4Time for littlebig Hayden home go. \w8Skedaddle on! \w8Continue death of cycles.%(HTrest)%(br)Yeah, yeah.%(stoptalk)\w8\w8%(stopotherhayden)"
 		
 		if beers <= 85{
-			"%(HTrest)%beers bottles of beer on the wall,\w2 %beers bottles of beer.\w4 Take one down and pass it around-%(MRfrust)Rrrr%(Hneut)\1 %(negative)%(negative)- \w2LEAVE.\w4%(stopotherhayden)"
+			"%(HTrest)%beers bottles of beer on the wall,\w2 %beers bottles of beer.\w4 Take one down and pass it around-%(MRfrust)Rrrr %(negative)%(negative)- \w2LEAVE.\w4%(stopotherhayden) "
 		}
 		haydendead = 0
 		beers = 99
 		souls--
 	}else{
-		"%(HTcross)I'd leave, but looks like that guy I poisoned hasn't died yet. No souls.%(stoptalk) "
+		
 		"%(HTneut)Mori, \w4why am I still here? \w4Surely my time is up by now.%(MRmelan)Ah- \w4Regrettably regrettable, \w4it would appear we have no souls to send littlebig Hayden home.%(Hneut)\1%(br).\w2.\w2.\w2.\w2.\w2.\w2%(HTshout)WHAT?!%(stoptalk)"
 		"%(MRmelan).\w4.\w4.hmmm.%(HTrest)Hmm?%(MRmelan)%(br)Timing is ringing for %(haydennick) to leave, yet souls are needed in collection. \w8Linger longer is necessary.%(Hrest)\1%(br)sigh.\w4.\w4. \w4%(HTrest)Fine.%(Hrest)"
 	}
@@ -198,7 +244,7 @@ OnHaydenDeathTalk{
 	--
 	case haydencauseofdeath{
 		when 0{ //car
-			"%(MRrelax)AH-\w5 %(MRthink)Oh hello %(haydennick)-%(HTpgdead)FUCKING.\w5 HELL.%(MRmelan)%(br)Oh are-%(HTshout)%(br)THAT FUCKING DRIVER DIDN’T FUCKING LOOK!\w4 OW. \w4 WHAT THE FUUUUCK!!!%(MRrelax)%(Hshout)%(br)Snrk-%(HTcross)%(br)Oh shut up.%(stoptalk)"
+			"%(MRrelax)%(Hpgdead)AH-\w5 %(MRthink)%(Hpgdead)Oh hello %(haydennick)-%(HTpgdead)FUCKING.\w5 HELL.%(MRmelan)%(Hpgdead)%(br)Oh are-%(HTshout)%(br)THAT FUCKING DRIVER DIDN’T FUCKING LOOK!\w4 OW. \w4 WHAT THE FUUUUCK!!!%(MRrelax)%(Hshout)%(br)Snrk-%(HTcross)%(br)Oh shut up.%(stoptalk)"
 
 		}
 		when 1{ //don't wanna talk
@@ -209,17 +255,17 @@ OnHaydenDeathTalk{
 		when 2{ //killed in chase
 			"%(HTpgdead)AAAAAH! \w6%(HTshout)FUCK!!!%(MRneut)What a lively life of time. \w8Whatever do?%(HTshout)%(br)Not! \w4Fucking! \w4Fast! \w4Enough! \w8\w8GAH! %(MRneut)%(br)Take your taken time.%(HThead)%(br)Urghhh.%(stoptalk)"
 			
-			"%(morigreeting)%(HTpgdead).\w4.\w4.%(MRmelan)%(br)Littlebig Hayden? Whatever happened to your little spirit?%(HTpgdead)%(br)So cold.\w4.\w4 %(MRmelan)%(br)Hither, \w2hither.%(HTcross)%(br)Street fight. \w5Buried. \w5Snow. \w9%(HTrest)Just.\w2.\w2.\w2 leave me alone%(stoptalk)."
+			"%(morigreeting)%(HTpgdead).\w4.\w4.%(MRmelan)%(Hpgdead)%(br)Littlebig Hayden? Whatever happened to your little spirit?%(HTpgdead)%(br)So cold.\w4.\w4 %(MRmelan)%(br)Hither, \w2hither.%(HTcross)%(br)Street fight. \w5Buried. \w5Snow. \w9%(HTrest)Just.\w2.\w2.\w2 leave me alone%(stoptalk)."
 		}
 		when 3{ //bled out
 			"%(morigreeting)"
 			--
-			"%(HTpgdead)Wait no-%(MRrelax)No?\w4 A %(negative) no?%(HThead)%(br)Ugh, \w4that’s gonna leave some trauma.%(MRrelax)%(br)????%(HThead)%(br)...Bled out on someone. \w4%(HTneut)I tried to tell them not to bother, but they tried to save me anyway.%(Hrest)\w4\w4Sigh... %(stoptalk)"
+			"%(HTpgdead)Wait no-%(MRrelax)%(Hpgdead)No?\w4 A %(negative) no?%(HThead)%(br)Ugh, \w4that’s gonna leave some trauma.%(MRrelax)%(Hpgdead)%(br)????%(HThead)%(br)...Bled out on someone. \w4%(HTneut)I tried to tell them not to bother, but they tried to save me anyway.%(Hrest)\w4\w4Sigh... %(stoptalk)"
 		}
 		when 4{ //poison
 			"%(morigreeting)"
 			--
-			"%(HTpgdead).\w4.\w4.\w4mmmnnmmnm.%(MRmelan)%(br)Oh my %(haydennick), \w4greeniest of gills dost you haviest have! \w4Has an illness brought you to us on high?%(HTpgdead)%(br)Ssssomeone slipped somethin’ in my drink\w2.\w2.\w2.%(MRmelan)%(br)Unfortunate tragedies to have it end this way. \w4Perhaps luck shall be better in the future.%(HTpgdead)%(br)shuddup%(stoptalk)"
+			"%(HTpgdead).\w4.\w4.\w4mmmnnmmnm.%(MRmelan)%(Hpgdead)%(br)Oh my %(haydennick), \w4greeniest of gills dost you haviest have! \w4Has an illness brought you to us on high?%(HTpgdead)%(br)Ssssomeone slipped somethin’ in my drink\w2.\w2.\w2.%(MRmelan)%(Hpgdead)%(br)Unfortunate tragedies to have it end this way. \w4Perhaps luck shall be better in the future.%(HTpgdead)%(br)shuddup%(stoptalk)"
 		}
 		others{ 
 			"%(morigreeting)"

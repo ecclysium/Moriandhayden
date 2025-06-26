@@ -1,6 +1,10 @@
 Charset,UTF-8
 install,769869930
+homeurl_found,1
 surfacecount,81
+homeurl,https://raw.githubusercontent.com/Ecclysium/moriandhayden/master/Updates/MoriandHayden/
+update_result,OK(0)
 firstboot,803664488
+update_time,804225160
 commitmemorysize,4079384
-lastboot,804219477
+lastboot,804225146

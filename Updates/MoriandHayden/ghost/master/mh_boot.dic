@@ -13,19 +13,22 @@ OnFirstBoot
 	goretalk = 0
 	beers = 99
 	ibuprofengirl = 0
+	breakup = 0
 	
 	//"\1\s[-1]%(MRrest)Another nary-yesyes-beautiful day with a set of souls. Oh, will they gather in close, come closercloser.\w8"
-	"\1\s[-1]"
+	"\1\s[-1]\![enter,nouserbreakmode]"
 	--
 	"\0\s[101]My-me, oh my! \w8What a %(positive) day. \w8Why, \w4there is something odd in the air. \w8Is it the lack of %(spirit)? \w8It is lonely with myself and me and middlymine. \w8Oh, middlymine, \w4where is that one I do keep? \w8Where is that littlebigflame soulsnatcher? \w9I do wonder what they are up to.\w4.\w4.%(Hfall)"
 	--
 	"\w8%(MRrelax)%(Hpgdead)%(br)\w4Oh!! \w4%(MRthink)%(Hpgdead)Demon speak of, \w2hello Hayden!! \w8Is how soul gather? Is %(negative) or perchance %(positive)?"
 	--
-	"%(HTpgdead)Mmmmrrngg-%(MRmelan)%(Hpgdead)%(br)Mmrrrr??\x%(HTpgdead)%(br)Mrrrgggrrughh- \w2%(HTshout)THOSE FUCKIN’ FEATHERY FUCKS!!!%(MRrelax)Feather fuck?"
+	"%(HTpgdead)Mmmmrrngg-%(MRmelan)%(Hpgdead)%(br)Mmrrrr??\x%(HTpgdead)Mrrrgggrrughh- \w2%(HTshout)THOSE FUCKIN’ FEATHERY FUCKS!!!%(MRrelax)Feather fuck?"
 	--
 	"%(Hcross)\1%(br).\w2.\w2.\w2.%(HTcross)Okay I know ya are a god ‘n alla that, \w2but never say feather fuck again. Anyways, it was those fuckin’ aerials again. Thought I killed 'em all, but guess not. \w8%(HTrest)Hmph. \w4Whateva, \w2guess I’m stuck here for now."
 	--
-	"%(MRrelax)Featherfucks %(negative), \w2but %(positive)glad to see %(haydennick) again! \w4Too long, \w2longest of longs."
+	"%(MRrelax)%(br)Featherfucks %(negative), \w2but %(positive)glad to see %(haydennick) again! \w4Too long, \w2longest of longs."
+	--
+	"\![leave,nouserbreakmode]\x\c"
 }
 
 OnInitialize

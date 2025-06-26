@@ -301,10 +301,10 @@ godinfo{
 }
 
 morigreeting{
-	"%(MRthink)Salutations %(Haydennick)! Soso %(positive) to perceive your being once more."
-	"%(MRthink)Oh %(haydennick)! So very golly good to see you, yesyes!"
-	"%(MRneut)Oh, yesyes, hello %(haydennick)."
-	"%(MRthink)Yay yippee %(haydennick) returns with souls in tow."
+	"%(MRthink)%(Hpgdead)Salutations %(Haydennick)! Soso %(positive) to perceive your being once more."
+	"%(MRthink)%(Hpgdead)Oh %(haydennick)! So very golly good to see you, yesyes!"
+	"%(MRneut)%(Hpgdead)Oh, yesyes, hello %(haydennick)."
+	"%(MRthink)%(Hpgdead)Yay yippee %(haydennick) returns with souls in tow."
 	
 
 }
